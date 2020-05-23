@@ -1,1 +1,22 @@
-@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+/* @import '~@angular/material/prebuilt-themes/indigo-pink.css'; */
+
+body {
+  font-family: Roboto, Arial, sans-serif;
+  margin: 0;
+}
+
+.example-sidenav-content {
+  /* display: flex;
+  height: 100%;
+  align-items: center;
+	justify-content: center;
+	flex-direction: row; */
+	border: 5px solid green;
+	min-width: 300px;
+}
+
+.container {
+	padding: 30px;
+}

@@ -1,3 +1,34 @@
-<mat-toolbar color="primary">
-  Toolbar works
-</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav [fixedInViewport]='true' class="example-sidenav-content">
+    <div>
+      <a href="#">Owner-Account</a>
+    </div>
+    <div>
+      <a href="#">Owner-Account</a>
+    </div>
+    <div>
+      <a href="#">Owner-Account</a>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" >
+      <button mat-button (click)="sidenav.toggle()">
+        <mat-icon>TODO Icon</mat-icon>
+      </button>
+      Toolbar works
+    </mat-toolbar>
+  
+    TODO Flex 100% height
+
+  <div class="container">
+
+    <app-first></app-first>
+    <app-second></app-second>
+  </div>
+  
+
+
+</mat-sidenav-content>
+</mat-sidenav-container>
+
+
