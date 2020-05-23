@@ -1,13 +1,10 @@
 <mat-sidenav-container>
-  <mat-sidenav #sidenav [fixedInViewport]='true' class="example-sidenav-content">
+  <mat-sidenav #sidenav [fixedInViewport]='true' class="example-sidenav-content" (click)="sidenav.toggle()">
     <div>
-      <a href="#">Owner-Account</a>
+      <a routerLink="/first" >First</a>
     </div>
     <div>
-      <a href="#">Owner-Account</a>
-    </div>
-    <div>
-      <a href="#">Owner-Account</a>
+      <a routerLink="/second" >Second</a>
     </div>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -20,15 +17,11 @@
   
     TODO Flex 100% height
 
-  <div class="container">
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
 
-    <app-first></app-first>
-    <app-second></app-second>
-  </div>
-  
-
-
-</mat-sidenav-content>
+  </mat-sidenav-content>
 </mat-sidenav-container>
 
 

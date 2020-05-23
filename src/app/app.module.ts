@@ -9,10 +9,10 @@ import { FirstComponent } from './first/first.component';
 import { SecondComponent } from './second/second.component';
 
 const routes = [
-  { path: '', redirectTo: 'all', pathMatch: 'full' },
+  { path: '', redirectTo: '', pathMatch: 'full' },
   { path: 'first', component: FirstComponent },
   { path: 'second', component: SecondComponent },
-  { path: '**', redirectTo: '/all' }
+  { path: '**', redirectTo: '/' }
 ];
 
 @NgModule({
