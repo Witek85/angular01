@@ -5,7 +5,9 @@ import { FirstRootComponent } from './first-root/first-root.component';
 import { FirstComponent } from './first/first.component';
 import { FirstToolbarsComponent } from './first-toolbars/first-toolbars.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatProgressBarModule, MatProgressSpinnerModule } from '@angular/material';
 import { FirstIconsComponent } from './first-icons/first-icons.component';
+import { FirstSpinnersComponent } from './first-spinners/first-spinners.component';
 
 
 @NgModule({
@@ -13,11 +15,14 @@ import { FirstIconsComponent } from './first-icons/first-icons.component';
     FirstComponent,
     FirstRootComponent,
     FirstToolbarsComponent,
-    FirstIconsComponent
+    FirstIconsComponent,
+    FirstSpinnersComponent
   ],
   imports: [
     AppMaterialModule,
     MatToolbarModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
     RouterModule.forChild([
         {path: '', component: FirstRootComponent}
     ])
