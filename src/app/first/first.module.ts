@@ -5,13 +5,15 @@ import { FirstRootComponent } from './first-root/first-root.component';
 import { FirstComponent } from './first/first.component';
 import { FirstToolbarsComponent } from './first-toolbars/first-toolbars.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { FirstIconsComponent } from './first-icons/first-icons.component';
 
 
 @NgModule({
   declarations: [
     FirstComponent,
     FirstRootComponent,
-    FirstToolbarsComponent
+    FirstToolbarsComponent,
+    FirstIconsComponent
   ],
   imports: [
     AppMaterialModule,
