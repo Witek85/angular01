@@ -5,12 +5,11 @@ import { AppMaterialModule } from './app-material.module';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { FirstComponent } from './first/first.component';
 import { SecondComponent } from './second/second.component';
 
 const routes = [
   { path: '', redirectTo: '', pathMatch: 'full' },
-  { path: 'first', component: FirstComponent },
+  { path: 'first', loadChildren: './first/first.module#FirstModule'},
   { path: 'second', component: SecondComponent },
   { path: '**', redirectTo: '/' }
 ];
@@ -18,7 +17,6 @@ const routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    FirstComponent,
     SecondComponent
   ],
   imports: [
