@@ -9,6 +9,7 @@ import { MatProgressBarModule, MatProgressSpinnerModule } from '@angular/materia
 import { FirstIconsComponent } from './first-icons/first-icons.component';
 import { FirstSpinnersComponent } from './first-spinners/first-spinners.component';
 import { FirstTabsComponent } from './first-tabs/first-tabs.component';
+import { FirstDialogComponent } from './first-dialog/first-dialog.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { FirstTabsComponent } from './first-tabs/first-tabs.component';
     FirstToolbarsComponent,
     FirstIconsComponent,
     FirstSpinnersComponent,
-    FirstTabsComponent
+    FirstTabsComponent,
+    FirstDialogComponent
   ],
   imports: [
     AppMaterialModule,
@@ -29,5 +31,6 @@ import { FirstTabsComponent } from './first-tabs/first-tabs.component';
         {path: '', component: FirstRootComponent}
     ])
   ],
+  entryComponents: [FirstDialogComponent],
 })
 export class FirstModule { }
