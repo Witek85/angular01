@@ -8,6 +8,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatProgressBarModule, MatProgressSpinnerModule } from '@angular/material';
 import { FirstIconsComponent } from './first-icons/first-icons.component';
 import { FirstSpinnersComponent } from './first-spinners/first-spinners.component';
+import { FirstTabsComponent } from './first-tabs/first-tabs.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { FirstSpinnersComponent } from './first-spinners/first-spinners.componen
     FirstRootComponent,
     FirstToolbarsComponent,
     FirstIconsComponent,
-    FirstSpinnersComponent
+    FirstSpinnersComponent,
+    FirstTabsComponent
   ],
   imports: [
     AppMaterialModule,
