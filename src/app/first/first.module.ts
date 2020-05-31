@@ -10,6 +10,7 @@ import { FirstIconsComponent } from './first-icons/first-icons.component';
 import { FirstSpinnersComponent } from './first-spinners/first-spinners.component';
 import { FirstTabsComponent } from './first-tabs/first-tabs.component';
 import { FirstDialogComponent } from './first-dialog/first-dialog.component';
+import { FirstSnackbarComponent } from './first-snackbar/first-snackbar.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { FirstDialogComponent } from './first-dialog/first-dialog.component';
     FirstIconsComponent,
     FirstSpinnersComponent,
     FirstTabsComponent,
-    FirstDialogComponent
+    FirstDialogComponent,
+    FirstSnackbarComponent
   ],
   imports: [
     AppMaterialModule,
