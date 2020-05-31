@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./second.component.css']
 })
 export class SecondComponent implements OnInit {
+  public startDate = new Date();
+  public minDate = new Date(2020, 1, 1);
 
   constructor() { }
 
   ngOnInit() {
   }
+
+  onSubmit(form) { console.log(form) }
 
 }

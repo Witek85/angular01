@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { SecondComponent } from './second/second.component';
+import { FormsModule } from '@angular/forms';
 
 const routes = [
   { path: '', redirectTo: '', pathMatch: 'full' },
@@ -23,7 +24,8 @@ const routes = [
     BrowserModule,
     BrowserAnimationsModule,
     AppMaterialModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

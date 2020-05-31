@@ -7,7 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { MatTabsModule, MatDialogModule, MatInputModule } from '@angular/material';
+import { MatTabsModule, MatDialogModule, MatInputModule, MatDatepickerModule, MatNativeDateModule } from '@angular/material';
 
 
 
@@ -23,6 +23,8 @@ import { MatTabsModule, MatDialogModule, MatInputModule } from '@angular/materia
     MatTabsModule,
     MatDialogModule,
     MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
 })
 export class AppMaterialModule { }

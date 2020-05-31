@@ -1,4 +1,17 @@
+<form #tdForm="ngForm" (ngSubmit)="onSubmit(tdForm)">
+<p>Text</p>
 <mat-form-field>
 	<input type="text" placeholder="Enter text" matInput />
 	<mat-hint>This is a mat hint</mat-hint>
 </mat-form-field>
+
+<p>Date</p>
+<mat-form-field>
+	<input [matDatepicker]="datepicker" [min]="minDate" matInput />
+	<mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+	<mat-datepicker #datepicker [startAt]="startDate"></mat-datepicker>
+</mat-form-field>
+
+<br/>
+<button type="submit" mat-button>Submit</button>
+</form>
