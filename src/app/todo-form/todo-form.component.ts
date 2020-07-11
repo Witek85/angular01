@@ -9,7 +9,7 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 export class TodoFormComponent implements OnInit {
   todoFormGroup: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor() { }
 
   ngOnInit() {
     this.todoFormGroup = new FormGroup({
@@ -18,12 +18,15 @@ export class TodoFormComponent implements OnInit {
       }),
       priority: new FormControl(null, {
         validators: Validators.required, updateOn: "submit"
-      })
+      }),
+      consent: new FormControl(false, [(control) => {    
+        return !control.value ? { 'required': true } : null;
+      }])
     })
   }
 
   onSubmit(form: FormGroup) {
-    
+    form.get('consent').markAsTouched();
     if (form.status === 'VALID') {
       console.log(form)
     } else {

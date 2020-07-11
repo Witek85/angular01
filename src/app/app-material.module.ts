@@ -11,11 +11,7 @@ import { MatTabsModule, MatDialogModule, MatInputModule, MatDatepickerModule, Ma
 import {MatTableModule} from '@angular/material/table';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
-
-
-
-
-
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   exports: [
@@ -33,7 +29,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatNativeDateModule,
     MatTableModule,
     MatFormFieldModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCheckboxModule
     
   ],
 })

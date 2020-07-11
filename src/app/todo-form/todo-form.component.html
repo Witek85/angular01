@@ -20,8 +20,14 @@
 					<mat-option value="urgent">Urgent</mat-option>
 				</mat-select>
 			</mat-form-field>
+			<br/>
+			<mat-checkbox formControlName="consent" value="false">I agree to the terms and conditions</mat-checkbox>
+			<mat-error *ngIf="!todoFormGroup.controls['consent'].valid && todoFormGroup.controls['consent'].touched">
+				Invalid
+			</mat-error>
 		</mat-card-content>
 		<mat-card-actions>
+			<!-- TODO disabled if not valid -->
 			<button mat-button color="primary">Submit</button>
 		</mat-card-actions>
 	</form>
