@@ -8,6 +8,7 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 })
 export class TodoFormComponent implements OnInit {
   todoFormGroup: FormGroup;
+  priorities: string[] = ['Low', 'Normal', 'High', 'Urgent'];
 
   constructor() { }
 
