@@ -9,6 +9,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatTabsModule, MatDialogModule, MatInputModule, MatDatepickerModule, MatNativeDateModule } from '@angular/material';
 import {MatTableModule} from '@angular/material/table';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+
+
 
 
 
@@ -27,7 +31,9 @@ import {MatTableModule} from '@angular/material/table';
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatTableModule
+    MatTableModule,
+    MatFormFieldModule,
+    MatSelectModule
     
   ],
 })
