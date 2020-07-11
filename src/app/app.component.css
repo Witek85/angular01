@@ -1,0 +1,9 @@
+.mat-sidenav-content {
+	box-sizing: border-box;
+	min-height: 100vh;
+}
+
+.mat-sidenav-content .container {
+	max-width: 1140px;
+	margin: 0 auto;
+}
