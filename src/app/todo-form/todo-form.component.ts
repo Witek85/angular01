@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { TodosService } from '../services/todos.service';
 
 @Component({
   selector: 'app-todo-form',
@@ -10,7 +11,7 @@ export class TodoFormComponent implements OnInit {
   todoFormGroup: FormGroup;
   priorities: string[] = ['Low', 'Normal', 'High', 'Urgent'];
 
-  constructor() { }
+  constructor(private todosService: TodosService) { }
 
   ngOnInit() {
     this.todoFormGroup = new FormGroup({
@@ -29,7 +30,9 @@ export class TodoFormComponent implements OnInit {
   onSubmit(form: FormGroup) {
     form.get('consent').markAsTouched();
     if (form.status === 'VALID') {
-      console.log(form)
+      this.todosService.addTodo(form.value);
+      // TODO clear errors after submit
+      this.todoFormGroup.reset();
     } else {
       console.log('invalid')
     }
