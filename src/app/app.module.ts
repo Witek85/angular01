@@ -7,18 +7,25 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { SecondComponent } from './second/second.component';
 import { FormsModule } from '@angular/forms';
+import { TodosComponent } from './todos/todos.component';
+import { TodoFormComponent } from './todo-form/todo-form.component';
+import { TodoListComponent } from './todo-list/todo-list.component';
 
 const routes = [
   { path: '', redirectTo: '', pathMatch: 'full' },
   { path: 'first', loadChildren: './first/first.module#FirstModule'},
   { path: 'second', component: SecondComponent },
+  { path: 'todos', component: TodosComponent },
   { path: '**', redirectTo: '/' }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    SecondComponent
+    SecondComponent,
+    TodosComponent,
+    TodoFormComponent,
+    TodoListComponent
   ],
   imports: [
     BrowserModule,
