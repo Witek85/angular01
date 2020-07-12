@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-
+import { TodosService } from '../services/todos.service';
 
 @Component({
   selector: 'app-todo-edit',
@@ -14,11 +14,11 @@ export class TodoEditComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<TodoEditComponent>,
+    private todosService: TodosService,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
 
   ngOnInit() {
-    console.log(this.data)
     this.editTodoFormGroup = new FormGroup({
       task: new FormControl(this.data.task, {
         validators: Validators.required, updateOn: "change"
@@ -33,8 +33,8 @@ export class TodoEditComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  onSubmit() {
-    console.log('save');
+  onSubmit(value: any) {
+    this.todosService.editTodo(this.data.id, value);
     this.dialogRef.close();
   }
 
