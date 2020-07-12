@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TodosComponent } from './todos/todos.component';
 import { TodoFormComponent } from './todo-form/todo-form.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
+import { TodoEditComponent } from './todo-edit/todo-edit.component';
 
 const routes = [
   { path: '', redirectTo: '', pathMatch: 'full' },
@@ -25,7 +26,8 @@ const routes = [
     SecondComponent,
     TodosComponent,
     TodoFormComponent,
-    TodoListComponent
+    TodoListComponent,
+    TodoEditComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,6 +38,7 @@ const routes = [
     ReactiveFormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [TodoEditComponent],
 })
 export class AppModule { }
