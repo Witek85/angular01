@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { TodosService } from '../services/todos.service';
+import { TodosService } from '../../../services/todos.service';
 
 @Component({
   selector: 'app-todo-form',
