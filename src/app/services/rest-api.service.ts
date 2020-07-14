@@ -27,4 +27,8 @@ export class RestApiService {
       priority: todo.priority
     }) 
   }
+
+  deleteTodo(id: number) {
+    return this.http.delete<Todo>('http://ws-todolist-api.herokuapp.com/todos/' + id)
+	}
 }

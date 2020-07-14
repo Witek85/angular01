@@ -37,8 +37,11 @@ export class TodoListComponent implements OnInit {
     });
   }
 
-  onDelete(id) {
+  onDelete(id, _id) {
     this.todosService.deleteTodo(id);
+    this.restApiService.deleteTodo(_id).subscribe(todo => {
+      console.log('todo', todo)
+    });
   }
 
 }
