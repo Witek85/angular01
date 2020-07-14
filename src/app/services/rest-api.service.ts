@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { TodoList } from '../todo/todolist.model';
 import { TodosService } from './todos.service';
+import { Todo } from '../todo/todo.model';
 
 @Injectable({
   providedIn: 'root'
@@ -17,5 +18,13 @@ export class RestApiService {
     .subscribe(todos => {
       this.todosService.setTodos(todos);
     });
+  }
+
+  saveTodo(todo: Todo) {
+    return this.http.post<Todo>('http://ws-todolist-api.herokuapp.com/todos', {
+      id: todo.todoId,
+      task: todo.task,
+      priority: todo.priority
+    }) 
   }
 }

@@ -23,10 +23,10 @@ export class TodosService {
 
   addTodo(todo: Todo) {
     this.todolist.push({
-      id: this.todolist.length ? this.todolist[this.todolist.length - 1].id + 1 : 1,
+      id: todo.todoId,
       task: todo.task,
       priority: todo.priority,
-    })
+    });
 		this.todoChange.next(this.todolist.slice());
   }
   
