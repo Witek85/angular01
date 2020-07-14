@@ -8,16 +8,17 @@ import { Todo } from '../todo/todo.model';
 })
 export class TodosService {
   todoChange = new Subject<TodoList[]>();
-  todolist: TodoList[] = [
-    {id: 1, task: 'Do something', priority: 'Normal'},
-    {id: 2, task: 'Do something else', priority: 'Normal'},
-    {id: 3, task: 'Do something completely different!', priority: 'Urgent'},
-  ];
+  todolist: TodoList[] = [];
 
   constructor() { }
 
   getTodos() {
     return this.todolist.slice();
+  }
+
+  setTodos(todolist: TodoList[]) {
+    this.todolist = todolist;
+		this.todoChange.next(this.todolist.slice());
   }
 
   addTodo(todo: Todo) {

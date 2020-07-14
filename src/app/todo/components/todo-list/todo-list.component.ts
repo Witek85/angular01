@@ -4,6 +4,7 @@ import { TodoList } from '../../todolist.model';
 import { Subscription } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { TodoEditComponent } from '../todo-edit/todo-edit.component';
+import { RestApiService } from 'src/app/services/rest-api.service';
 
 @Component({
   selector: 'app-todo-list',
@@ -15,15 +16,15 @@ export class TodoListComponent implements OnInit {
   todoList: TodoList[];
   todoSubscription: Subscription;
 
-  constructor(private todosService: TodosService, public dialog: MatDialog) { }
+  constructor(private todosService: TodosService, private restApiService: RestApiService, public dialog: MatDialog) { }
 
   ngOnInit() {
+    this.restApiService.fetchTodos();
     this.todoSubscription = this.todosService.todoChange.subscribe(
       (todoList: TodoList[]) => {
         this.todoList = todoList;
       }
     );
-    this.todoList = this.todosService.getTodos();
   }
 
   ngOnDestroy() {

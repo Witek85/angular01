@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppMaterialModule } from '../app-material.module';
 import { TodosComponent } from './components/todos/todos.component';
@@ -22,7 +23,8 @@ import { TodoListComponent } from './components/todo-list/todo-list.component';
     ReactiveFormsModule,
     RouterModule.forChild([
       {path: '', component: TodosComponent}
-    ])
+    ]),
+    HttpClientModule
   ],
   entryComponents: [TodoEditComponent],
 })
