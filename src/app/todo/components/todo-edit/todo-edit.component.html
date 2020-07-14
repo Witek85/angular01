@@ -1,5 +1,5 @@
 <h1 mat-dialog-title>Edit task {{data.id}}</h1>
-<form [formGroup]="editTodoFormGroup" (ngSubmit)="onSubmit(editTodoFormGroup.value)" class="form">
+<form [formGroup]="editTodoFormGroup" (ngSubmit)="onSubmit(data._id, editTodoFormGroup.value)" class="form">
   <div mat-dialog-content>
     <mat-form-field appearance="fill">
       <mat-label>Task</mat-label>
