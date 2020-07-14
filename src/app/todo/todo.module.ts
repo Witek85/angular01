@@ -28,31 +28,4 @@ import { TodoListComponent } from './components/todo-list/todo-list.component';
   ],
   entryComponents: [TodoEditComponent],
 })
-export class TodoModule { }
-
-
-
-
-// import { NgModule } from '@angular/core';
-// import { FormsModule } from '@angular/forms';
-// import { RouterModule } from '@angular/router';
-
-// import { ShoppingListComponent } from './shopping-list.component';
-// import { ShoppingEditComponent } from './shopping-edit/shopping-edit.component';
-// import { SharedModule } from 'app/shared/shared.module';
-
-
-// @NgModule({
-//   declarations: [
-//     ShoppingListComponent,
-//     ShoppingEditComponent,
-//   ],
-//   imports: [
-//       SharedModule,
-//       FormsModule,
-//       RouterModule.forChild([
-//         {path: '', component: ShoppingListComponent}
-//       ])
-//   ],
-// })
-// export class ShoppingListModule { }
+export class TodoModule {}
