@@ -3,6 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { TodosService } from '../../../services/todos.service';
 import { RestApiService } from 'src/app/services/rest-api.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-todo-edit',
@@ -15,6 +16,7 @@ export class TodoEditComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<TodoEditComponent>,
+    private _snackBar: MatSnackBar,
     private todosService: TodosService,
     private restApiService: RestApiService,
     @Inject(MAT_DIALOG_DATA) public data: any
@@ -37,10 +39,11 @@ export class TodoEditComponent implements OnInit {
 
   onSubmit(_id: number, value: any) {
     this.todosService.editTodo(this.data.id, value);
-    this.restApiService.editTodo(_id, value).subscribe(todo => {
-      console.log('todo', todo)
-    });
     this.dialogRef.close();
+    this.restApiService.editTodo(_id, value).subscribe(todo => {
+      this._snackBar.open(`Todo ${this.data.id} has been updated`, 'Close', {
+        duration: 2000,
+      });
+    });
   }
-
 }

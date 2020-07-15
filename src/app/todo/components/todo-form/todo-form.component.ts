@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { TodosService } from '../../../services/todos.service';
 import { RestApiService } from 'src/app/services/rest-api.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-todo-form',
@@ -12,7 +13,11 @@ export class TodoFormComponent implements OnInit {
   todoFormGroup: FormGroup;
   priorities: string[] = ['Low', 'Normal', 'High', 'Urgent'];
 
-  constructor(private todosService: TodosService, private restApiService: RestApiService) { }
+  constructor(
+    private todosService: TodosService, 
+    private restApiService: RestApiService,
+    private _snackBar: MatSnackBar
+  ) { }
 
   ngOnInit() {
     this.todoFormGroup = new FormGroup({
@@ -35,7 +40,9 @@ export class TodoFormComponent implements OnInit {
     if (form.status === 'VALID') {
       this.todosService.addTodo({todoId, ...form.value});
       this.restApiService.saveTodo({todoId, ...form.value}).subscribe(todo => {
-        console.log('todo', todo)
+        this._snackBar.open(`Todo ${todo.task} has been added`, 'Close', {
+          duration: 2000,
+        });
       });
       // TODO clear errors after submit
       this.todoFormGroup.reset();

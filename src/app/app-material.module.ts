@@ -12,6 +12,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   exports: [
@@ -30,8 +31,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatTableModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatCheckboxModule
-    
+    MatCheckboxModule,
+    MatSnackBarModule
   ],
 })
 export class AppMaterialModule { }
