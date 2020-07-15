@@ -46,6 +46,9 @@ export class TodoFormComponent implements OnInit {
       });
       // TODO clear errors after submit
       this.todoFormGroup.reset();
+      Object.keys(this.todoFormGroup.controls).forEach(key => {
+        this.todoFormGroup.get(key).setErrors(null) ;
+      });
     } else {
       console.log('invalid')
     }
