@@ -30,7 +30,7 @@ export class RestApiService {
 
   editTodo(id: number, todo: Todo) {
     console.log(id, todo)
-    return this.http.put<Todo>('http://localhost:3000/todos/' + id, {
+    return this.http.put<Todo>('http://ws-todolist-api.herokuapp.com/todos/' + id, {
       id: todo.todoId,
       task: todo.task,
       priority: todo.priority
