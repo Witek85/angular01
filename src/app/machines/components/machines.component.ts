@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Machine } from '../machine.model';
+import { RestApiService } from 'src/app/services/rest-api.service';
 
 @Component({
   selector: 'app-machines',
@@ -10,9 +11,14 @@ import { Machine } from '../machine.model';
 export class MachinesComponent implements OnInit {
   machines$: Observable<Machine[]>;
 
-  constructor() { }
+  constructor(private restApiService:RestApiService) { }
 
   ngOnInit() {
+    this.restApiService.fetchMachines().subscribe(machines => {
+      this.machines$ = of(machines);  
+      console.log(machines);
+      console.log(this.machines$)
+    })
   }
 
 }

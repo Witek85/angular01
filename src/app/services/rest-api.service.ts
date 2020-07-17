@@ -4,6 +4,8 @@ import { HttpClient } from '@angular/common/http';
 import { TodoList } from '../todo/todolist.model';
 import { TodosService } from './todos.service';
 import { Todo } from '../todo/todo.model';
+import { Machine } from '../machines/machine.model';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -39,5 +41,10 @@ export class RestApiService {
 
   deleteTodo(id: number) {
     return this.http.delete<Todo>('http://ws-todolist-api.herokuapp.com/todos/' + id)
-	}
+  }
+  
+  fetchMachines() {
+    return this.http.get<Machine[]>('http://ws-todolist-api.herokuapp.com/machines')
+    // as Observable<Machine[]>;
+  }
 }
