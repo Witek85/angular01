@@ -44,7 +44,6 @@ export class TodoFormComponent implements OnInit {
           duration: 2000,
         });
       });
-      // TODO clear errors after submit
       this.todoFormGroup.reset();
       Object.keys(this.todoFormGroup.controls).forEach(key => {
         this.todoFormGroup.get(key).setErrors(null) ;
