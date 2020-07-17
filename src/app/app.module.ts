@@ -15,6 +15,7 @@ const routes = [
   { path: 'first', loadChildren: './first/first.module#FirstModule'},
   { path: 'second', component: SecondComponent },
   { path: 'todos',  loadChildren: './todo/todo.module#TodoModule'},
+  { path: 'machines',  loadChildren: './machines/machines.module#MachinesModule'},
   { path: '**', redirectTo: '/' }
 ];
 
