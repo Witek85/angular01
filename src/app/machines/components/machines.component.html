@@ -1,1 +1,1 @@
-<p *ngFor="let machine of machines$ | async">{{machine.name}}</p>
+<app-machines-list [machines]="machines$ | async"></app-machines-list>
