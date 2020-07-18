@@ -16,8 +16,6 @@ export class MachinesComponent implements OnInit {
   ngOnInit() {
     this.restApiService.fetchMachines().subscribe(machines => {
       this.machines$ = of(machines);  
-      console.log(machines);
-      console.log(this.machines$)
     })
   }
 

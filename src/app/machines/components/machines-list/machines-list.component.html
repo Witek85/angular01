@@ -1,1 +1,8 @@
-<p *ngFor="let machine of machines">{{machine.name}}</p>
+<p *ngFor="let machine of machines">
+	<a [routerLink]="[machine.id]" 
+		routerLinkActive = "active">
+		{{machine.name}}
+	</a>
+</p>
+
+
