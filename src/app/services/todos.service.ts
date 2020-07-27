@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { TodoList } from '../todo/todolist.model';
-import { Todo } from '../todo/todo.model';
+import { TodoList } from '../todo/interfaces/todolist';
+import { Todo } from '../todo/interfaces/todo';
 
 @Injectable({
   providedIn: 'root'

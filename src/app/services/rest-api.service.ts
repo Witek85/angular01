@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { TodoList } from '../todo/todolist.model';
+import { TodoList } from '../todo/interfaces/todolist';
 import { TodosService } from './todos.service';
-import { Todo } from '../todo/todo.model';
+import { Todo } from '../todo/interfaces/todo';
 import { Machine } from '../machines/machine.model';
 import { Observable } from 'rxjs';
 

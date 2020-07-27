@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TodosService } from '../../../services/todos.service';
-import { TodoList } from '../../todolist.model';
+import { TodoList } from '../../interfaces/todolist';
 import { Subscription } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { TodoEditComponent } from '../todo-edit/todo-edit.component';
