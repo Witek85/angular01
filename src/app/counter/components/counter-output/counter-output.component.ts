@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-counter-output',
@@ -7,10 +7,12 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class CounterOutputComponent implements OnInit {
   @Input() counter;
+  @ViewChild('counterOutputRef', {static: true}) counterOutputReference:ElementRef;
 
   constructor() { }
 
   ngOnInit() {
+    console.log('ViewChild', this.counterOutputReference.nativeElement)
   }
 
 }
