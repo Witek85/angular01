@@ -6,11 +6,12 @@ import { CounterButtonComponent } from './components/counter-button/counter-butt
 import { CounterOutputComponent } from './components/counter-output/counter-output.component';
 import { AppMaterialModule } from '../app-material.module';
 import { CounterTemplateComponent } from './components/counter-template/counter-template.component';
+import { HighlightDirective } from './directives/highlight.directive';
 
 
 
 @NgModule({
-  declarations: [CounterContainerComponent, CounterButtonComponent, CounterOutputComponent, CounterTemplateComponent],
+  declarations: [CounterContainerComponent, CounterButtonComponent, CounterOutputComponent, CounterTemplateComponent, HighlightDirective],
   imports: [
     CommonModule,
     AppMaterialModule,
