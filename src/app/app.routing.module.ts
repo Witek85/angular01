@@ -8,6 +8,7 @@ const routes: Routes = [
   { path: 'second', component: SecondComponent },
   { path: 'todos',  loadChildren: './todo/todo.module#TodoModule'},
   { path: 'machines',  loadChildren: './machines/machines.module#MachinesModule'},
+  { path: 'counter',  loadChildren: './counter/counter.module#CounterModule'},
   { path: '**', redirectTo: '/' }
 ];
 
