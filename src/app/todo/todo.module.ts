@@ -9,13 +9,15 @@ import { TodosComponent } from './components/todos/todos.component';
 import { TodoEditComponent } from './components/todo-edit/todo-edit.component';
 import { TodoFormComponent } from './components/todo-form/todo-form.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
+import { RandomizePipe } from './pipes/randomize.pipe';
 
 @NgModule({
   declarations: [
     TodosComponent,
     TodoFormComponent,
     TodoListComponent,
-    TodoEditComponent
+    TodoEditComponent,
+    RandomizePipe
   ],
   imports: [
     CommonModule,
