@@ -5,11 +5,12 @@ import { RouterModule } from '@angular/router';
 import { CounterButtonComponent } from './components/counter-button/counter-button.component';
 import { CounterOutputComponent } from './components/counter-output/counter-output.component';
 import { AppMaterialModule } from '../app-material.module';
+import { CounterTemplateComponent } from './components/counter-template/counter-template.component';
 
 
 
 @NgModule({
-  declarations: [CounterContainerComponent, CounterButtonComponent, CounterOutputComponent],
+  declarations: [CounterContainerComponent, CounterButtonComponent, CounterOutputComponent, CounterTemplateComponent],
   imports: [
     CommonModule,
     AppMaterialModule,
