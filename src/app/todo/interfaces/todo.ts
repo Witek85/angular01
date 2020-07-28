@@ -1,5 +1,6 @@
 export interface Todo {
-  todoId: number;
+  _id: string;
+  id: number;
   task: string;
   priority: string;
 }

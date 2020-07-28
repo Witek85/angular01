@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { TodoList } from '../todo/interfaces/todolist';
 import { TodosService } from './todos.service';
 import { Todo } from '../todo/interfaces/todo';
 import { Machine } from '../machines/machine.model';
@@ -16,7 +15,7 @@ export class RestApiService {
 
   fetchTodos() {
     this.http
-    .get<TodoList[]>('http://ws-todolist-api.herokuapp.com/todos') 
+    .get<Todo[]>('http://ws-todolist-api.herokuapp.com/todos') 
     .subscribe(todos => {
       this.todosService.setTodos(todos);
     });
@@ -24,7 +23,7 @@ export class RestApiService {
 
   saveTodo(todo: Todo) {
     return this.http.post<Todo>('http://ws-todolist-api.herokuapp.com/todos', {
-      id: todo.todoId,
+      id: todo.id,
       task: todo.task,
       priority: todo.priority
     }) 
@@ -33,7 +32,7 @@ export class RestApiService {
   editTodo(id: number, todo: Todo) {
     console.log(id, todo)
     return this.http.put<Todo>('http://ws-todolist-api.herokuapp.com/todos/' + id, {
-      id: todo.todoId,
+      id: todo.id,
       task: todo.task,
       priority: todo.priority
     }) 

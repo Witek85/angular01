@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { TodoList } from '../todo/interfaces/todolist';
 import { Todo } from '../todo/interfaces/todo';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TodosService {
-  todoChange = new Subject<TodoList[]>();
-  todolist: TodoList[] = [];
+  todoChange = new Subject<Todo[]>();
+  todolist: Todo[] = [];
 
   constructor() { }
 
@@ -16,14 +15,15 @@ export class TodosService {
     return this.todolist.slice();
   }
 
-  setTodos(todolist: TodoList[]) {
+  setTodos(todolist: Todo[]) {
     this.todolist = todolist;
 		this.todoChange.next(this.todolist.slice());
   }
 
   addTodo(todo: Todo) {
     this.todolist.push({
-      id: todo.todoId,
+      _id: todo._id,
+      id: todo.id,
       task: todo.task,
       priority: todo.priority,
     });

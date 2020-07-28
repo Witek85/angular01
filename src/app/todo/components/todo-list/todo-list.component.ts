@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TodosService } from '../../../services/todos.service';
-import { TodoList } from '../../interfaces/todolist';
+import { Todo } from '../../interfaces/todo';
 import { Subscription } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { TodoEditComponent } from '../todo-edit/todo-edit.component';
@@ -14,7 +14,7 @@ import { MatSnackBar } from '@angular/material';
 })
 export class TodoListComponent implements OnInit {
   displayedColumns: string[] = ['id', 'task', 'priority', 'actions'];
-  todoList: TodoList[];
+  todoList: Todo[];
   todoSubscription: Subscription;
 
   constructor(
@@ -27,7 +27,7 @@ export class TodoListComponent implements OnInit {
   ngOnInit() {
     this.restApiService.fetchTodos();
     this.todoSubscription = this.todosService.todoChange.subscribe(
-      (todoList: TodoList[]) => {
+      (todoList: Todo[]) => {
         this.todoList = todoList;
       }
     );
