@@ -22,4 +22,10 @@ export class AuthService {
     console.log(userData)
     this.router.navigate(['/']);
   }
+
+  logout() {
+    console.log('logout')
+    this.user.next(null);
+    this.router.navigate(['/']);
+  }
 }

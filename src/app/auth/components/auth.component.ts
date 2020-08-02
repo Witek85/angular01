@@ -22,4 +22,11 @@ export class AuthComponent implements OnInit {
     })
   }
 
+  onLogout(role:string) {
+    this.authService.logout();
+    this._snackBar.open('Logout successful', 'Close', {
+      duration: 2000
+    })
+  }
+
 }
