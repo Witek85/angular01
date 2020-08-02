@@ -15,6 +15,14 @@
         <mat-icon>menu</mat-icon>
       </button>
       Toolbar works
+      <span class="example-spacer"></span>
+      <button mat-button [matMenuTriggerFor]="userMenu">
+        <mat-icon>people</mat-icon>
+      </button>
+      <mat-menu #userMenu="matMenu">
+        <button mat-menu-item routerLink="/auth">Login</button>
+        <button mat-menu-item>Logout</button>
+      </mat-menu>
     </mat-toolbar>
     <div class="container">
       <router-outlet></router-outlet>

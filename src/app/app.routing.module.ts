@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: 'todos',  loadChildren: './todo/todo.module#TodoModule'},
   { path: 'machines',  loadChildren: './machines/machines.module#MachinesModule'},
   { path: 'counter',  loadChildren: './counter/counter.module#CounterModule'},
+  { path: 'auth',  loadChildren: './auth/auth.module#AuthModule'},
   { path: '**', redirectTo: '/' }
 ];
 
