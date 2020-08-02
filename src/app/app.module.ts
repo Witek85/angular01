@@ -7,22 +7,22 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppMaterialModule } from './app-material.module';
 import { AppComponent } from './app.component';
 import { SecondComponent } from './second/second.component';
-import { AppRoutingModule } from './app.routing.module';
 import { SimpleInterceptorService } from './todo/interceptors/simple.interceptor.service';
+import { LayoutModule } from './layout/layout.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SecondComponent,
+    SecondComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppMaterialModule,
-    AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    LayoutModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: SimpleInterceptorService, multi: true}

@@ -3,21 +3,20 @@ import { AuthService } from 'src/app/services/auth.service';
 import { MatSnackBar } from '@angular/material';
 
 @Component({
-  selector: 'app-auth',
-  templateUrl: './auth.component.html',
-  styleUrls: ['./auth.component.css']
+  selector: 'app-layout',
+  templateUrl: './layout.component.html',
+  styleUrls: ['./layout.component.css']
 })
-export class AuthComponent implements OnInit {
+export class LayoutComponent implements OnInit {
 
   constructor(private authService:AuthService, private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
   }
 
-  onLogin(role:string) {
-    console.log('role', role);
-    this.authService.login({role});
-    this._snackBar.open('Login successful', 'Close', {
+  onLogout() {
+    this.authService.logout();
+    this._snackBar.open('Logout successful', 'Close', {
       duration: 2000
     })
   }
