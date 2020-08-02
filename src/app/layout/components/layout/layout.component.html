@@ -20,8 +20,8 @@
         <mat-icon>people</mat-icon>
       </button>
       <mat-menu #userMenu="matMenu">
-        <button mat-menu-item routerLink="/auth">Login</button>
-        <button mat-menu-item (click)="onLogout()">Logout</button>
+        <button mat-menu-item *ngIf="!this.isAuthenticated" routerLink="/auth">Login</button>
+        <button mat-menu-item *ngIf="this.isAuthenticated" (click)="onLogout()">Logout</button>
       </mat-menu>
     </mat-toolbar>
     <div class="container">
