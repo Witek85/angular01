@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SecondComponent } from './second/second.component';
+import { AuthGuard } from './auth/guards/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' },
@@ -9,7 +10,7 @@ const routes: Routes = [
   { path: 'todos',  loadChildren: './todo/todo.module#TodoModule'},
   { path: 'machines',  loadChildren: './machines/machines.module#MachinesModule'},
   { path: 'counter',  loadChildren: './counter/counter.module#CounterModule'},
-  { path: 'auth',  loadChildren: './auth/auth.module#AuthModule'},
+  { path: 'auth',  canActivate:[AuthGuard], loadChildren: './auth/auth.module#AuthModule'},
   { path: '**', redirectTo: '/' }
 ];
 
