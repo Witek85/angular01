@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { LayoutComponent } from './components/layout/layout.component';
 import { AppRoutingModule } from '../app.routing.module';
 import { AppMaterialModule } from '../app-material.module';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
 
 
 
 @NgModule({
-  declarations: [LayoutComponent],
+  declarations: [LayoutComponent, ToolbarComponent],
   imports: [
     CommonModule,
     AppMaterialModule,

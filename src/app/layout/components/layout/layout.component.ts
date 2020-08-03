@@ -1,6 +1,6 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar, MatDrawer } from '@angular/material';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -11,6 +11,7 @@ import { Subscription } from 'rxjs';
 export class LayoutComponent implements OnInit, OnDestroy{
   isAuthenticated = false;
   private userSubscription: Subscription;
+  @ViewChild('sidenav', {static: true}) private sidenavRef: MatDrawer;
 
   constructor(private authService:AuthService, private _snackBar: MatSnackBar) { }
 
@@ -30,6 +31,11 @@ export class LayoutComponent implements OnInit, OnDestroy{
     this._snackBar.open('Logout successful', 'Close', {
       duration: 2000
     })
+  }
+
+  onToggle() {
+    console.log('toggle', this.sidenavRef);
+    this.sidenavRef.toggle();
   }
 
 }
