@@ -47,24 +47,16 @@ export class RestApiService {
     return this.http.delete<Todo>('http://ws-todolist-api.herokuapp.com/todos/' + id)
   }
   
-  getMachines() {
+  fetchMachines() {
     this.http
     .get<Machine[]>('http://ws-todolist-api.herokuapp.com/machines')
     .subscribe(machines => {
       console.log('machines', machines)
       this.machinesService.setMachines(machines);
+    },
+    error => {
+      // TODO set error in error alert
+      console.log(error.message)
     })
   }
-
-  // fetchTodos() {
-  //   this.http
-  //   .get<Todo[]>('http://ws-todolist-api.herokuapp.com/todos') 
-  //   .subscribe(todos => {
-  //     this.todosService.setTodos(todos);
-  //   },
-  //   error => {
-  //     // TODO set error in error alert
-  //     console.log(error.message)
-  //   });
-  // }
 }

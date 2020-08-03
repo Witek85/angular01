@@ -15,9 +15,8 @@ export class MachinesComponent implements OnInit, OnDestroy {
 
   constructor(private restApiService:RestApiService, private machinesService: MachinesService) { }
 
-
   ngOnInit() {
-    this.restApiService.getMachines();
+    this.restApiService.fetchMachines();
     this.machineSubscription = this.machinesService.machinesChange.subscribe(
       (machines: Machine[]) => {
         this.machines$ = of(machines);  
