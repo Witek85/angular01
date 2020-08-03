@@ -6,6 +6,7 @@ import { MachinesComponent } from './components/machines.component';
 import { MachinesListComponent } from './components/machines-list/machines-list.component';
 import { MachinesDetailComponent } from './components/machines-detail/machines-detail.component';
 import { MachinesMapComponent } from './components/machines-map/machines-map.component';
+import { MachineResolver } from './resolvers/machine.resolver.service';
 
 
 
@@ -16,7 +17,7 @@ import { MachinesMapComponent } from './components/machines-map/machines-map.com
     RouterModule.forChild([
       {path: '', component: MachinesComponent, children: [
         {path: '', component: MachinesMapComponent},
-        {path: ':id', component: MachinesDetailComponent}
+        {path: ':id', component: MachinesDetailComponent, resolve: {machine: MachineResolver}}
       ]},
     ]),
   ]

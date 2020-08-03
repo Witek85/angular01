@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { Machine } from '../../interfaces/machine';
 
 @Component({
   selector: 'app-machines-detail',
@@ -7,14 +8,14 @@ import { ActivatedRoute, Params } from '@angular/router';
   styleUrls: ['./machines-detail.component.css']
 })
 export class MachinesDetailComponent implements OnInit {
-  id: number;
+  machine: Machine;
 
   constructor(private route: ActivatedRoute ) { }
 
   ngOnInit() {
-    this.route.params.subscribe(
-			(params: Params) => {
-				this.id = +params['id'];
+    this.route.data.subscribe(
+			(data: Machine) => {
+				this.machine = data['machine'];
 			}
 		);
   }

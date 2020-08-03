@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Machine } from '../../machine.model';
+import { Machine } from '../../interfaces/machine';
 
 @Component({
   selector: 'app-machines-list',
