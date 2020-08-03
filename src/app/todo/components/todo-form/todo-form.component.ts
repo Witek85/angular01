@@ -39,7 +39,7 @@ export class TodoFormComponent implements OnInit {
     const todoId = todolist.length ? todolist[todolist.length - 1].id + 1 : 1
     const todoParams = {...form.value}
     if (form.status === 'VALID') {
-      this.restApiService.saveTodo({todoId, ...form.value}).subscribe(todo => {
+      this.restApiService.saveTodo({id: todoId, ...form.value}).subscribe(todo => {
         this.todosService.addTodo({_id: todo._id, id: todoId, ...todoParams});
         this._snackBar.open(`Todo ${todo.task} has been added`, 'Close', {
           duration: 2000,
