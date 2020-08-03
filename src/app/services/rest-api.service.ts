@@ -18,6 +18,10 @@ export class RestApiService {
     .get<Todo[]>('http://ws-todolist-api.herokuapp.com/todos') 
     .subscribe(todos => {
       this.todosService.setTodos(todos);
+    },
+    error => {
+      // TODO set error in error alert
+      console.log(error.message)
     });
   }
 
