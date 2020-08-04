@@ -1,0 +1,22 @@
+.machines-list {
+    /* width: 100vw; */
+}
+
+.machines-list .mat-expansion-panel-header-title,
+.machines-list .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.machines-list .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+}
+
+.machines-list .mat-expansion-panel-header-description .mat-icon {
+    margin-left: 2rem;
+}
+
+.machines-list .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}

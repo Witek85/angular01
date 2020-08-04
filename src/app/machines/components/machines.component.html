@@ -1,2 +1,10 @@
-<app-machines-list [machines]="machines$ | async"></app-machines-list>
-<router-outlet></router-outlet>
+<div class="machines">
+    <mat-grid-list cols="2" rowHeight="1:1">
+        <mat-grid-tile class="machines-tile">
+            <app-machines-list [machines]="machines$ | async"></app-machines-list>
+        </mat-grid-tile>
+        <mat-grid-tile class="machines-tile">
+            <router-outlet></router-outlet>
+        </mat-grid-tile>
+      </mat-grid-list>
+</div>
