@@ -8,6 +8,7 @@ import { MachinesDetailComponent } from './components/machines-detail/machines-d
 import { MachinesMapComponent } from './components/machines-map/machines-map.component';
 import { MachineResolver } from './resolvers/machine.resolver.service';
 import { AppMaterialModule } from '../app-material.module';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 
 
@@ -16,6 +17,7 @@ import { AppMaterialModule } from '../app-material.module';
   imports: [
     CommonModule,
     AppMaterialModule,
+    LeafletModule,
     RouterModule.forChild([
       {path: '', component: MachinesComponent, children: [
         {path: '', component: MachinesMapComponent},
