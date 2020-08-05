@@ -1,5 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { Machine } from '../../interfaces/machine';
+import {MatAccordion} from '@angular/material/expansion';
+
 
 @Component({
   selector: 'app-machines-list',
@@ -8,6 +10,7 @@ import { Machine } from '../../interfaces/machine';
 })
 export class MachinesListComponent implements OnInit {
   @Input() machines: Machine[];
+  @ViewChild(MatAccordion, {static: true}) accordion: MatAccordion;
 
   constructor() { }
 

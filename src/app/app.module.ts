@@ -3,6 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 import { AppMaterialModule } from './app-material.module';
 import { AppComponent } from './app.component';
@@ -22,7 +23,8 @@ import { LayoutModule } from './layout/layout.module';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    LayoutModule
+    LayoutModule,
+    LeafletModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: SimpleInterceptorService, multi: true}

@@ -8,7 +8,7 @@ import { Machine } from '../machines/interfaces/machine';
 export class MachinesService {
   machinesChange = new Subject<Machine[]>();
   machines: Machine[] = [];
-
+  
   constructor() { }
 
   getMachines() {
