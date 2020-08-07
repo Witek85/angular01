@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewInit, AfterContentInit, OnDestroy } from '@
 import * as L from 'leaflet';
 import { MachinesService } from 'src/app/services/machines.service';
 import { Subscription } from 'rxjs';
+import { Machine } from '../../interfaces/machine';
 
 
 @Component({
@@ -10,6 +11,8 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./machines-map.component.css']
 })
 export class MachinesMapComponent implements OnInit {
+
+  map: L.Map;
 
   icon = L.icon({
     iconSize: [ 25, 41 ],
@@ -46,14 +49,32 @@ export class MachinesMapComponent implements OnInit {
     center: L.latLng(52.2303201, 20.9905102)
   };
 
-  constructor() { }
+  machineSelection:Subscription;
+
+  constructor(private machinesService: MachinesService) { }
 
   ngOnInit() {
     this.marker1.addTo(this.markersLevel);
     this.marker2.addTo(this.markersLevel);
     this.marker3.addTo(this.markersLevel);
 
+    
+    this.machineSelection = this.machinesService.selectedMachine.subscribe(machine => {
+      this.panToMachine(machine);
+    })
   }
 
+  ngOnDestroy() {
+    this.machineSelection.unsubscribe();
+  }
+
+  onMapReady(map: L.Map) {
+    console.log('TODO fitBounds');
+    this.map = map;
+  }
+
+  panToMachine(machine: Machine) {
+    this.map.panTo(new L.LatLng(machine.lat, machine.lng));
+  }
 
 }

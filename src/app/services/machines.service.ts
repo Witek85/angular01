@@ -7,6 +7,7 @@ import { Machine } from '../machines/interfaces/machine';
 })
 export class MachinesService {
   machinesChange = new Subject<Machine[]>();
+  selectedMachine = new Subject<Machine>();
   machines: Machine[] = [];
   
   constructor() { }
@@ -19,6 +20,10 @@ export class MachinesService {
     return this.machines.find(machine => {
       return machine.id === id
     });
+  }
+
+  selectMachine(machine: Machine) {
+    this.selectedMachine.next(machine)
   }
 
   setMachines(machines: Machine[]) {

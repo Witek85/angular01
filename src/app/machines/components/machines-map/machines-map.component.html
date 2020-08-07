@@ -1,6 +1,7 @@
 <div class="map-container">
   <div style="height: 100%;"
     leaflet 
+    (leafletMapReady)="onMapReady($event)"
     [leafletOptions]="options"
     [leafletLayers]="layerGroup">
   </div>

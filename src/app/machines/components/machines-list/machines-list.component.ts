@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { Machine } from '../../interfaces/machine';
 import {MatAccordion} from '@angular/material/expansion';
+import { MachinesService } from 'src/app/services/machines.service';
 
 
 @Component({
@@ -12,9 +13,13 @@ export class MachinesListComponent implements OnInit {
   @Input() machines: Machine[];
   @ViewChild(MatAccordion, {static: true}) accordion: MatAccordion;
 
-  constructor() { }
+  constructor(private machinesService: MachinesService) { }
 
   ngOnInit() {
+  }
+
+  onOpened(machine: Machine) {
+    this.machinesService.selectMachine(machine)
   }
 
 }
