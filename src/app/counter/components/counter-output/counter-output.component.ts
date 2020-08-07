@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef, ChangeDetectorRef } from '@angular/core';
 import { Counter } from '../../interfaces/counter';
 
 @Component({
@@ -10,10 +10,18 @@ export class CounterOutputComponent implements OnInit {
   @Input() counter:Counter;
   @ViewChild('counterOutputRef', {static: true}) counterOutputReference:ElementRef;
 
-  constructor() { }
+  constructor(private ref: ChangeDetectorRef) { }
 
   ngOnInit() {
     console.log('ViewChild', this.counterOutputReference.nativeElement)
+  }
+
+  onReattach() {
+    this.ref.reattach();
+  }
+
+  onDetach() {
+    this.ref.detach();
   }
 
 }

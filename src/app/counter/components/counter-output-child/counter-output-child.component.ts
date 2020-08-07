@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { Counter } from '../../interfaces/counter';
 
 @Component({
@@ -10,8 +10,23 @@ import { Counter } from '../../interfaces/counter';
 export class CounterOutputChildComponent implements OnInit {
   @Input() counter:Counter;
 
-  constructor() { }
+  constructor(private ref: ChangeDetectorRef) { }
 
   ngOnInit() {
   }
+
+  onDetectChanges() {
+    this.ref.detectChanges();
+  }
+
+  onReattach() {
+    this.ref.reattach();
+  }
+
+  onDetach() {
+    console.log(this.ref)
+    this.ref.detach();
+  }
+  
+  
 }
