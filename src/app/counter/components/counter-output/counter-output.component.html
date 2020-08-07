@@ -1,1 +1,2 @@
-<p #counterOutputRef>Counter output: <span>{{counter}}</span></p>
+<p #counterOutputRef>Counter output: <span>{{counter.value}}</span></p>
+<app-counter-output-child [counter]="counter" ></app-counter-output-child>

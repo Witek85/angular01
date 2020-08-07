@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Counter } from '../../interfaces/counter';
 
 @Component({
   selector: 'app-counter-container',
@@ -6,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./counter-container.component.css']
 })
 export class CounterContainerComponent implements OnInit {
-  counter: Number = 0;
+  counter: Counter = {
+    value: 0
+  };
 
   constructor() { }
 
@@ -15,7 +18,7 @@ export class CounterContainerComponent implements OnInit {
 
   onIncrementSet(val) {
     console.log('onIncrementSet ' + val)
-    this.counter += val;
+    this.counter.value += val;
   }
 
 }

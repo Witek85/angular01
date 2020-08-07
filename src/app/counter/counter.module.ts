@@ -7,11 +7,12 @@ import { CounterOutputComponent } from './components/counter-output/counter-outp
 import { AppMaterialModule } from '../app-material.module';
 import { CounterTemplateComponent } from './components/counter-template/counter-template.component';
 import { HighlightDirective } from './directives/highlight.directive';
+import { CounterOutputChildComponent } from './components/counter-output-child/counter-output-child.component';
 
 
 
 @NgModule({
-  declarations: [CounterContainerComponent, CounterButtonComponent, CounterOutputComponent, CounterTemplateComponent, HighlightDirective],
+  declarations: [CounterContainerComponent, CounterButtonComponent, CounterOutputComponent, CounterTemplateComponent, HighlightDirective, CounterOutputChildComponent],
   imports: [
     CommonModule,
     AppMaterialModule,
