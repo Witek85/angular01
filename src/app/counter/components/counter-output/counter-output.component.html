@@ -1,4 +1,6 @@
 <p #counterOutputRef>Counter output: <span>{{counter.value}}</span></p>
 <button mat-raised-button color="primary" (click)="onReattach()">Reattach</button>
 <button mat-raised-button color="primary" (click)="onDetach()">Detach</button>
-<app-counter-output-child [counter]="counter" ></app-counter-output-child>
+<button mat-raised-button color="basic" (click)="onLogReference()">Log Reference</button>
+<app-counter-output-child [counter]="counter" #childRef></app-counter-output-child>
+<p>Child reference value: {{  childRef.counter.value }}</p>

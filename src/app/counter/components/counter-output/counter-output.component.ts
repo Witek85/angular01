@@ -9,6 +9,7 @@ import { Counter } from '../../interfaces/counter';
 export class CounterOutputComponent implements OnInit {
   @Input() counter:Counter;
   @ViewChild('counterOutputRef', {static: true}) counterOutputReference:ElementRef;
+  @ViewChild('childRef', {static: true}) childReference:ElementRef;
 
   constructor(private ref: ChangeDetectorRef) { }
 
@@ -22,6 +23,10 @@ export class CounterOutputComponent implements OnInit {
 
   onDetach() {
     this.ref.detach();
+  }
+
+  onLogReference() {
+    console.log('childReference', this.childReference)
   }
 
 }
