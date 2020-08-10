@@ -1,0 +1,9 @@
+<mat-form-field>
+	<input 
+		matInput 
+		placeholder="custom" 
+		[formControl]="customControl"
+		(keyup)="propagateChange($event.target.value)" 
+		(blur)="propagateTouched($event)" 
+	/>
+</mat-form-field>
