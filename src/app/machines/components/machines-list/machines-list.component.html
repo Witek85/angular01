@@ -4,22 +4,22 @@
   </div>
 
 <mat-accordion class="machines-list" multi>
-	<mat-expansion-panel hideToggle *ngFor="let machine of machines" (opened)="onOpened(machine)">
-	  <mat-expansion-panel-header>
-		<mat-panel-title>
-			{{machine.name}}
-		</mat-panel-title>
-		<mat-panel-description>
-			TODO machine description
-		</mat-panel-description>
-	  </mat-expansion-panel-header>
-	  <p>
-		This is the primary content of the panel.
-	  </p>
-	  <mat-action-row>
-		<a [routerLink]="[machine.id]" routerLinkActive = "active">
-			<button mat-button color="primary">View Machine</button>
-		</a>
-	  </mat-action-row>
-	</mat-expansion-panel>
+		<mat-expansion-panel hideToggle *ngFor="let machine of machines" (opened)="onOpened(machine)">
+			<mat-expansion-panel-header>
+			<mat-panel-title>
+				{{machine.name}}
+			</mat-panel-title>
+			<mat-panel-description>
+				TODO machine description
+			</mat-panel-description>
+			</mat-expansion-panel-header>
+			<p>
+			This is the primary content of the panel.
+			</p>
+			<mat-action-row>
+			<a [routerLink]="[machine.id]" routerLinkActive = "active">
+				<button mat-button color="primary">View Machine</button>
+			</a>
+			</mat-action-row>
+		</mat-expansion-panel>
   </mat-accordion>

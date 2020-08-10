@@ -1,3 +1,18 @@
-.machines, .machines-tile {
-    border: 1px solid grey;
+.machines {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    min-height: calc(100vh - 64px);
+}
+
+.machines__list {
+    box-sizing: border-box;
+    flex: 1;
+    padding: 1rem;
+}
+
+.machines__map {
+    flex: 2;
 }
