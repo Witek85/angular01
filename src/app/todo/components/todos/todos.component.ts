@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { TodoFormComponent } from '../todo-form/todo-form.component'
-import { TodoListComponent } from '../todo-list/todo-list.component'
+import { Observable, of } from 'rxjs';
+import { Todo } from '../../interfaces/todo';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-todos',
@@ -8,10 +9,16 @@ import { TodoListComponent } from '../todo-list/todo-list.component'
   styleUrls: ['./todos.component.css']
 })
 export class TodosComponent implements OnInit {
+  todos$: Observable<Todo[]>;
 
-  constructor() { }
+  constructor(private route:ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.data.subscribe(
+			(data: Todo) => {
+        this.todos$ = of(data['todos']); 
+			}
+    )
   }
 
 }

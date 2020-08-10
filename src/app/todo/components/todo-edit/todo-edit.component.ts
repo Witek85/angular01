@@ -38,9 +38,9 @@ export class TodoEditComponent implements OnInit {
   }
 
   onSubmit(_id: number, value: any) {
-    this.todosService.editTodo(this.data.id, value);
     this.dialogRef.close();
     this.restApiService.editTodo(_id, value).subscribe(todo => {
+      this.todosService.editTodo(this.data.id, value);
       this._snackBar.open(`Todo ${this.data.id} has been updated`, 'Close', {
         duration: 2000,
       });

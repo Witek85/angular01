@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { TodosService } from '../../../services/todos.service';
 import { Todo } from '../../interfaces/todo';
 import { Subscription } from 'rxjs';
@@ -14,7 +14,7 @@ import { MatSnackBar } from '@angular/material';
 })
 export class TodoListComponent implements OnInit {
   displayedColumns: string[] = ['id', 'task', 'priority', 'actions'];
-  todoList: Todo[];
+  @Input() todos: Todo[];
   todoSubscription: Subscription;
 
   constructor(
@@ -25,10 +25,9 @@ export class TodoListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.restApiService.fetchTodos();
     this.todoSubscription = this.todosService.todoChange.subscribe(
-      (todoList: Todo[]) => {
-        this.todoList = todoList;
+      (todos: Todo[]) => {
+        this.todos = todos;
       }
     );
   }
@@ -44,8 +43,8 @@ export class TodoListComponent implements OnInit {
   }
 
   onDelete(item) {
-    this.todosService.deleteTodo(item.id);
-    this.restApiService.deleteTodo(item._id).subscribe(todo => {
+    this.restApiService.deleteTodo(item._id).subscribe(() => {
+      this.todosService.deleteTodo(item.id);
       this._snackBar.open(`Todo ${item.task} has been deleted`, 'Close', {
         duration: 2000,
       });

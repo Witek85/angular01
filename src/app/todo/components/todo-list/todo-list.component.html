@@ -1,7 +1,5 @@
-<table mat-table [dataSource]="todoList" class="mat-elevation-z1">
+<table mat-table [dataSource]="todos" class="mat-elevation-z1">
 
-  <!--- Note that these columns can be defined in any order.
-        The actual rendered columns are set as a property on the row definition" -->
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef> No. </th>
     <td mat-cell *matCellDef="let element"> {{element.id}} </td>

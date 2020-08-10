@@ -10,6 +10,7 @@ import { TodoEditComponent } from './components/todo-edit/todo-edit.component';
 import { TodoFormComponent } from './components/todo-form/todo-form.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
 import { RandomizePipe } from './pipes/randomize.pipe';
+import { TodosResolver } from './resolvers/todos.resolver.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { RandomizePipe } from './pipes/randomize.pipe';
     AppMaterialModule,
     ReactiveFormsModule,
     RouterModule.forChild([
-      {path: '', component: TodosComponent}
+      {path: '', resolve: { todos: TodosResolver }, component: TodosComponent}
     ]),
     HttpClientModule
   ],

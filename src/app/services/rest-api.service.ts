@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { TodosService } from './todos.service';
 import { Todo } from '../todo/interfaces/todo';
 import { Machine } from '../machines/interfaces/machine';
-import { Observable, of } from 'rxjs';
+import { of } from 'rxjs';
 import { MachinesService } from './machines.service';
 import { tap, catchError } from 'rxjs/operators';
 
@@ -16,15 +16,17 @@ export class RestApiService {
   constructor(private http:HttpClient, private todosService: TodosService, private machinesService: MachinesService) { }
 
   fetchTodos() {
-    this.http
-    .get<Todo[]>('http://ws-todolist-api.herokuapp.com/todos') 
-    .subscribe(todos => {
-      this.todosService.setTodos(todos);
-    },
-    error => {
-      // TODO set error in error alert
-      console.log(error.message)
-    });
+    return this.http
+      .get<Todo[]>('http://ws-todolist-api.herokuapp.com/todos')
+      .pipe(
+        tap(todos => {
+          this.todosService.setTodos(todos);
+        }),
+        catchError(err => {
+          console.log('TODO catchError', err)
+          return of([])
+        })
+      )
   }
 
   saveTodo(todo: Todo) {
@@ -36,7 +38,6 @@ export class RestApiService {
   }
 
   editTodo(id: number, todo: Todo) {
-    console.log(id, todo)
     return this.http.put<Todo>('http://ws-todolist-api.herokuapp.com/todos/' + id, {
       id: todo.id,
       task: todo.task,
