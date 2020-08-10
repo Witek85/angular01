@@ -16,7 +16,7 @@ export class MachinesComponent implements OnInit {
   constructor(private restApiService:RestApiService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.restApiService.fetchMachines();
+    // this.restApiService.fetchMachines();
     this.route.data.subscribe(
 			(data: Machine) => {
         this.machines$ = of(data['machines']); 
