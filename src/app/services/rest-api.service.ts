@@ -4,8 +4,9 @@ import { HttpClient } from '@angular/common/http';
 import { TodosService } from './todos.service';
 import { Todo } from '../todo/interfaces/todo';
 import { Machine } from '../machines/interfaces/machine';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { MachinesService } from './machines.service';
+import { tap, catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -48,15 +49,16 @@ export class RestApiService {
   }
   
   fetchMachines() {
-    this.http
+   return this.http
     .get<Machine[]>('http://ws-todolist-api.herokuapp.com/machines')
-    .subscribe(machines => {
-      console.log('machines', machines)
-      this.machinesService.setMachines(machines);
-    },
-    error => {
-      // TODO set error in error alert
-      console.log(error.message)
-    })
+    .pipe(
+      tap(machines => {
+        this.machinesService.setMachines(machines);
+      }),
+      catchError(err => {
+        console.log('TODO catchError', err)
+        return of([])
+      })
+    )
   }
 }

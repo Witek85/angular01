@@ -1,8 +1,9 @@
 import { Component, OnInit, AfterViewInit, AfterContentInit, OnDestroy } from '@angular/core';
 import * as L from 'leaflet';
 import { MachinesService } from 'src/app/services/machines.service';
-import { Subscription } from 'rxjs';
+import { Subscription, Observable, of } from 'rxjs';
 import { Machine } from '../../interfaces/machine';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -12,6 +13,7 @@ import { Machine } from '../../interfaces/machine';
 })
 export class MachinesMapComponent implements OnInit {
 
+  machines$: Observable<Machine[]>;
   map: L.Map;
 
   icon = L.icon({
@@ -20,18 +22,6 @@ export class MachinesMapComponent implements OnInit {
     iconUrl: 'assets/marker-icon.png',
     shadowUrl: 'assets/marker-shadow.png'
   })
-
-  marker1 = L.marker([ 52.2303201, 20.9905102 ], {
-    icon: this.icon
-  });
-
-  marker2 = L.marker([ 52.1945202,20.9955103 ], {
-    icon: this.icon
-  });
-
-  marker3 = L.marker([ 52.2355202,20.9505103 ], {
-    icon: this.icon
-  });
 
   markersLevel: L.LayerGroup = new L.LayerGroup();
 
@@ -51,15 +41,28 @@ export class MachinesMapComponent implements OnInit {
 
   machineSelection:Subscription;
 
-  constructor(private machinesService: MachinesService) { }
+  constructor(private machinesService: MachinesService, private route: ActivatedRoute) { }
+
+  createMarker(marker) {
+    const myMarker = L.marker([ marker.lat, marker.lng ], {
+      icon: this.icon
+    });
+
+    myMarker.addTo(this.markersLevel);
+  }
 
   ngOnInit() {
-    this.marker1.addTo(this.markersLevel);
-    this.marker2.addTo(this.markersLevel);
-    this.marker3.addTo(this.markersLevel);
-
+    this.route.data.subscribe(
+			(data: Machine[]) => {
+        data['machines'].map(marker => {
+          this.createMarker(marker);
+        })
+        this.machines$ = of(data['machines']); 
+			}
+    );
     
     this.machineSelection = this.machinesService.selectedMachine.subscribe(machine => {
+      console.log('selected machine', machine)
       this.panToMachine(machine);
     })
   }
