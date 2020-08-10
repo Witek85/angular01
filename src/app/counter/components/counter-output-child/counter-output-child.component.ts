@@ -9,6 +9,7 @@ import { Counter } from '../../interfaces/counter';
 })
 export class CounterOutputChildComponent implements OnInit {
   @Input() counter:Counter;
+  someProp: string = "hello property"
 
   constructor(private ref: ChangeDetectorRef) { }
 
