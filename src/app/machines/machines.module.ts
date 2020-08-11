@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
-import { MachinesComponent } from './components/machines.component';
+import { MachinesComponent } from './containers/machines/machines.component';
 import { MachinesListComponent } from './components/machines-list/machines-list.component';
 import { MachinesDetailComponent } from './components/machines-detail/machines-detail.component';
 import { MachinesMapComponent } from './components/machines-map/machines-map.component';
 import { MachineResolver } from './resolvers/machine.resolver.service';
 import { AppMaterialModule } from '../app-material.module';
-import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { MachinesResolver } from './resolvers/machines.resolver.service';
 
 

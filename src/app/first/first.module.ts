@@ -1,16 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { AppMaterialModule } from '../app-material.module';
-import { FirstRootComponent } from './first-root/first-root.component';
-import { FirstComponent } from './first/first.component';
-import { FirstToolbarsComponent } from './first-toolbars/first-toolbars.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatProgressBarModule, MatProgressSpinnerModule } from '@angular/material';
-import { FirstIconsComponent } from './first-icons/first-icons.component';
-import { FirstSpinnersComponent } from './first-spinners/first-spinners.component';
-import { FirstTabsComponent } from './first-tabs/first-tabs.component';
-import { FirstDialogComponent } from './first-dialog/first-dialog.component';
-import { FirstSnackbarComponent } from './first-snackbar/first-snackbar.component';
+
+import { AppMaterialModule } from '../app-material.module';
+import { FirstRootComponent } from './containers/first-root/first-root.component';
+import { FirstComponent } from './components/first/first.component';
+import { FirstToolbarsComponent } from './components/first-toolbars/first-toolbars.component';
+import { FirstIconsComponent } from './components/first-icons/first-icons.component';
+import { FirstSpinnersComponent } from './components/first-spinners/first-spinners.component';
+import { FirstTabsComponent } from './components/first-tabs/first-tabs.component';
+import { FirstDialogComponent } from './components/first-dialog/first-dialog.component';
+import { FirstSnackbarComponent } from './components/first-snackbar/first-snackbar.component';
 
 
 @NgModule({

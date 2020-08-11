@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CounterContainerComponent } from './components/counter-container/counter-container.component';
+import { CounterContainerComponent } from './containers/counter-container/counter-container.component';
 import { RouterModule } from '@angular/router';
 import { CounterButtonComponent } from './components/counter-button/counter-button.component';
 import { CounterOutputComponent } from './components/counter-output/counter-output.component';
