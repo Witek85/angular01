@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, ViewChild, ElementRef, ChangeDetectorRef } from '@angular/core';
 import { Counter } from '../../interfaces/counter';
+import { CounterService } from '../../services/counter.service';
 
 @Component({
   selector: 'app-counter-output',
@@ -11,10 +12,10 @@ export class CounterOutputComponent implements OnInit {
   @ViewChild('counterOutputRef', {static: true}) counterOutputReference:ElementRef;
   @ViewChild('childRef', {static: true}) childReference:ElementRef;
 
-  constructor(private ref: ChangeDetectorRef) { }
+  constructor(private ref: ChangeDetectorRef, private counterService: CounterService) { }
 
   ngOnInit() {
-    console.log('ViewChild', this.counterOutputReference.nativeElement)
+    console.log('ViewChild', this.counterOutputReference.nativeElement);
   }
 
   onReattach() {
@@ -27,6 +28,18 @@ export class CounterOutputComponent implements OnInit {
 
   onLogReference() {
     console.log('childReference', this.childReference)
+  }
+
+  onStartSubscription() {
+    this.counterService.startSubscription();
+  }
+
+  onStopSubscription() {
+    this.counterService.stopSubscription();
+  }
+
+  onLogMessage() {
+    this.counterService.logMessage();
   }
 
 }

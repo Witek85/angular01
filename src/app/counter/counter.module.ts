@@ -10,6 +10,7 @@ import { HighlightDirective } from './directives/highlight.directive';
 import { CounterOutputChildComponent } from './components/counter-output-child/counter-output-child.component';
 import { CounterCustomInputComponent } from './components/counter-custom-input/counter-custom-input.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CounterService } from './services/counter.service';
 
 
 
@@ -22,6 +23,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     RouterModule.forChild([
       {path: '', component: CounterContainerComponent},
     ]),
+  ],
+  providers: [
+    CounterService
   ]
 })
 export class CounterModule { }
