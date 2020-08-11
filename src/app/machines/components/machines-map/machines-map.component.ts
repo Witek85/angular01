@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, AfterContentInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, AfterViewInit, AfterContentInit, OnDestroy, ElementRef, ViewChild } from '@angular/core';
 import * as L from 'leaflet';
 import { MachinesService } from 'src/app/services/machines.service';
 import { Subscription, Observable, of } from 'rxjs';
@@ -12,6 +12,8 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./machines-map.component.css']
 })
 export class MachinesMapComponent implements OnInit {
+
+  @ViewChild("leafletRef", {static: false}) leafletReference: ElementRef;
 
   machines$: Observable<Machine[]>;
   map: L.Map;
@@ -65,6 +67,11 @@ export class MachinesMapComponent implements OnInit {
       console.log('selected machine', machine)
       this.panToMachine(machine);
     })
+  }
+
+  ngAfterViewInit() {
+    console.log("client height: " + this.leafletReference.nativeElement.clientHeight);
+    console.log("client width: "+ this.leafletReference.nativeElement.clientWidth);
   }
 
   ngOnDestroy() {
