@@ -1,13 +1,14 @@
-import { interval, Observable } from 'rxjs'
+import { interval, Observable, BehaviorSubject, Subscriber, Subscription } from 'rxjs'
 import { tap, map } from 'rxjs/operators';
 
 export class CounterService {
   public randomNumberObservable = interval(3000).pipe(
     tap(x => {console.log('preparing value', x)}),
-    map(x => this.getRandomNumber(100,5))
+    map(() => this.getRandomNumber(100,5))
   );
-  public randomNumberSubscription;
-  private randomNumberForNow = null;
+  public randomNumberSubscription: Subscription;
+  randomizerActive = new BehaviorSubject<boolean>(false);
+  private randomNumberForNow: number = null;
 
   constructor() {}
 
@@ -16,21 +17,22 @@ export class CounterService {
   }
 
   startSubscription() {
-    console.log('subscribed');
     this.randomNumberForNow = this.getRandomNumber(100,0);
-    this.randomNumberSubscription = this.randomNumberObservable.subscribe(y => {
-      console.log('subscribed value', y);
-      this.randomNumberForNow = y;
-    });
+    if (!this.randomizerActive.value) {
+      this.randomizerActive.next(true)
+      this.randomNumberSubscription = this.randomNumberObservable.subscribe(y => {
+        this.randomNumberForNow = y;
+      });
+    }
   }
 
   stopSubscription() {
-    console.log('unsubscribed');
     this.randomNumberForNow = null;
-    this.randomNumberSubscription.unsubscribe();
+    this.randomizerActive.next(false)
+    this.randomNumberSubscription && this.randomNumberSubscription.unsubscribe();
   }
 
   logMessage() {
-    console.log('this is a random number for now: ', this.randomNumberForNow);
+    console.log(`subscription is ${this.randomizerActive.value ? 'active' : 'not active'} and this is a random number for now: ${ this.randomNumberForNow}`);
   }
 }

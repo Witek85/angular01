@@ -1,12 +1,7 @@
 <p #counterOutputRef>Counter output: <span>{{counter.value}}</span></p>
 <button mat-raised-button color="primary" (click)="onReattach()">Reattach</button>
 <button mat-raised-button color="primary" (click)="onDetach()">Detach</button>
-<hr/>
 <button mat-raised-button color="basic" (click)="onLogReference()">Log Reference</button>
-&nbsp;
-<button mat-raised-button color="basic" (click)="onStartSubscription()">Start Subscription</button>
-<button mat-raised-button color="basic" (click)="onStopSubscription()">Stop Subscription</button>
-<button mat-raised-button color="basic" (click)="onLogMessage()">Log Random Number</button>
 <p>Value from child component</p>
 <app-counter-output-child [counter]="counter" #childRef></app-counter-output-child>
 <p>Value from #childRef: {{  childRef.counter.value }} - {{  childRef.someProp }}</p>

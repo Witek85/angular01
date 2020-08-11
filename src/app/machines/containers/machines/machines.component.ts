@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable, of, Subscription } from 'rxjs';
-import { Machine } from '../interfaces/machine';
+import { Machine } from '../../interfaces/machine';
 import { RestApiService } from 'src/app/services/rest-api.service';
 import { MachinesService } from 'src/app/services/machines.service';
 import { ActivatedRoute } from '@angular/router';
