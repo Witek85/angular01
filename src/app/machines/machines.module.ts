@@ -10,6 +10,7 @@ import { MachinesMapComponent } from './components/machines-map/machines-map.com
 import { MachineResolver } from './resolvers/machine.resolver.service';
 import { AppMaterialModule } from '../app-material.module';
 import { MachinesResolver } from './resolvers/machines.resolver.service';
+import { TeamsResolver } from '../shared/resolvers/teams.resolver.service';
 
 
 
@@ -20,9 +21,12 @@ import { MachinesResolver } from './resolvers/machines.resolver.service';
     AppMaterialModule,
     LeafletModule,
     RouterModule.forChild([
-      {path: '', component: MachinesComponent, resolve: {machines: MachinesResolver}, children: [
-        {path: '', component: MachinesMapComponent, resolve: {machines: MachinesResolver}},
-        {path: ':id', component: MachinesDetailComponent, resolve: {machine: MachineResolver}}
+      {path: '', component: MachinesComponent, resolve: {
+        machines: MachinesResolver, 
+        teams: TeamsResolver
+      }, children: [
+        {path: '', component: MachinesMapComponent, resolve: {machines: MachinesResolver, teams:TeamsResolver}},
+        {path: ':id', component: MachinesDetailComponent, resolve: {machine: MachineResolver, teams:TeamsResolver}}
       ]},
     ]),
   ]

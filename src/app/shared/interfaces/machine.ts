@@ -4,4 +4,5 @@ export interface Machine {
   name: string;
   lat: number;
   lng: number;
+  teamId: number;
 }
