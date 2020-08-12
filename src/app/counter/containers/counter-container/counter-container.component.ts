@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Optional, Inject } from '@angular/core';
 import { Counter } from '../../interfaces/counter';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { COUNTER_CONFIG } from '../../counter-config.token';
+import { CounterConfig } from '../../interfaces/counter-config'
 
 @Component({
   selector: 'app-counter-container',
@@ -8,12 +10,15 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./counter-container.component.css']
 })
 export class CounterContainerComponent implements OnInit {
+  private config = {};
   specialForm: FormGroup;
   counter: Counter = {
     value: 0
   };
 
-  constructor() { }
+  constructor(@Optional() @Inject(COUNTER_CONFIG) counterConfig: CounterConfig) {
+    this.config = counterConfig;
+  }
 
   ngOnInit() {
     this.specialForm = new FormGroup({

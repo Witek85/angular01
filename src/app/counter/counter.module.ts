@@ -13,6 +13,8 @@ import { CounterCustomInputComponent } from './components/counter-custom-input/c
 import { CounterService } from './services/counter.service';
 import { CounterLogButtonsComponent } from './components/counter-log-buttons/counter-log-buttons.component';
 
+import { COUNTER_CONFIG } from './counter-config.token';
+import { COUNTER_ENUM } from './enums/counter.enum'
 
 
 @NgModule({
@@ -35,7 +37,8 @@ import { CounterLogButtonsComponent } from './components/counter-log-buttons/cou
     ]),
   ],
   providers: [
-    CounterService
+    CounterService,
+    {provide: COUNTER_CONFIG, useValue: { ...COUNTER_ENUM }}
   ]
 })
 export class CounterModule { }

@@ -1,6 +1,7 @@
 <div class="container">
+	<h2>{{config.header}}</h2>
 	<mat-card>
-		<app-counter-output [counter]="counter"></app-counter-output>
+		<app-counter-output [config]="config" [counter]="counter"></app-counter-output>
 		<app-counter-button (incrementSet)="onIncrementSet($event)"></app-counter-button>
 	</mat-card>	
 	<br/>
