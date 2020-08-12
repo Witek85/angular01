@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { Machine } from '../../interfaces/machine';
+import { Machine } from 'src/app/shared/interfaces/machine';
 
 @Component({
   selector: 'app-machines-detail',

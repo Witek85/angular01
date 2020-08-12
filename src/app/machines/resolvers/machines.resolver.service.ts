@@ -1,9 +1,9 @@
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { Observable } from 'rxjs';
-import { Machine } from '../interfaces/machine';
-import { MachinesService } from 'src/app/services/machines.service';
 import { Injectable } from '@angular/core';
-import { RestApiService } from 'src/app/services/rest-api.service';
+import { Observable } from 'rxjs';
+import { Machine } from 'src/app/shared/interfaces/machine';
+import { MachinesService } from 'src/app/shared/services/machines.service';
+import { RestApiService } from 'src/app/shared/services/rest-api.service';
 
 @Injectable({
     providedIn: 'root'

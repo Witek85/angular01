@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { Todo } from '../../interfaces/todo';
 import { ActivatedRoute } from '@angular/router';
+import { Observable, of } from 'rxjs';
+import { Todo } from 'src/app/shared/interfaces/todo';
 
 @Component({
   selector: 'app-todos',

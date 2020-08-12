@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
-import { Machine } from '../../interfaces/machine';
+import { Machine } from 'src/app/shared/interfaces/machine';
 import {MatAccordion} from '@angular/material/expansion';
-import { MachinesService } from 'src/app/services/machines.service';
+import { MachinesService } from 'src/app/shared/services/machines.service';
 
 
 @Component({

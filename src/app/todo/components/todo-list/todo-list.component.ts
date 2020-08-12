@@ -1,11 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { TodosService } from '../../../services/todos.service';
-import { Todo } from '../../interfaces/todo';
-import { Subscription } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
-import { TodoEditComponent } from '../todo-edit/todo-edit.component';
-import { RestApiService } from 'src/app/services/rest-api.service';
 import { MatSnackBar } from '@angular/material';
+import { Subscription } from 'rxjs';
+import { TodosService } from 'src/app/shared/services/todos.service';
+import { Todo } from 'src/app/shared/interfaces/todo';
+import { TodoEditComponent } from '../todo-edit/todo-edit.component';
+import { RestApiService } from 'src/app/shared/services/rest-api.service';
 
 @Component({
   selector: 'app-todo-list',

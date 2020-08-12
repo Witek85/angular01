@@ -1,9 +1,9 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { TodosService } from '../../../services/todos.service';
-import { RestApiService } from 'src/app/services/rest-api.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { TodosService } from 'src/app/shared/services/todos.service';
+import { RestApiService } from 'src/app/shared/services/rest-api.service';
 
 @Component({
   selector: 'app-todo-edit',

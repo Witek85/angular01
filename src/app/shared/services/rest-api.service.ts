@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { TodosService } from './todos.service';
-import { Todo } from '../todo/interfaces/todo';
-import { Machine } from '../machines/interfaces/machine';
+import { Todo } from 'src/app/shared/interfaces/todo';
+import { Machine } from 'src/app/shared/interfaces/machine';
 import { of } from 'rxjs';
 import { MachinesService } from './machines.service';
 import { tap, catchError } from 'rxjs/operators';
@@ -61,5 +61,20 @@ export class RestApiService {
         return of([])
       })
     )
+  }
+
+  fetchTeams() {
+    return this.http
+      .get<Todo[]>('http://ws-todolist-api.herokuapp.com/teams')
+      .pipe(
+        tap(teams => {
+          console.log(teams);
+          // this.todosService.setTodos(todos);
+        }),
+        catchError(err => {
+          console.log('TODO catchError', err)
+          return of([])
+        })
+      )
   }
 }

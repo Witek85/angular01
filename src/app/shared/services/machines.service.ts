@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { Machine } from '../machines/interfaces/machine';
+import { Machine } from 'src/app/shared/interfaces/machine';
 
 @Injectable({
   providedIn: 'root'

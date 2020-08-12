@@ -1,9 +1,9 @@
 import { Component, OnInit, AfterViewInit, AfterContentInit, OnDestroy, ElementRef, ViewChild } from '@angular/core';
-import * as L from 'leaflet';
-import { MachinesService } from 'src/app/services/machines.service';
-import { Subscription, Observable, of } from 'rxjs';
-import { Machine } from '../../interfaces/machine';
 import { ActivatedRoute } from '@angular/router';
+import { Subscription, Observable, of } from 'rxjs';
+import * as L from 'leaflet';
+import { MachinesService } from 'src/app/shared/services/machines.service';
+import { Machine } from 'src/app/shared/interfaces/machine';
 
 
 @Component({

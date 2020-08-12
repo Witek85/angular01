@@ -1,9 +1,9 @@
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { RestApiService } from 'src/app/services/rest-api.service';
-import { Todo } from '../interfaces/todo';
-import { TodosService } from 'src/app/services/todos.service';
+import { Observable } from 'rxjs';
+import { RestApiService } from 'src/app/shared/services/rest-api.service';
+import { Todo } from 'src/app/shared/interfaces/todo';
+import { TodosService } from 'src/app/shared/services/todos.service';
 
 @Injectable({
     providedIn: 'root'
