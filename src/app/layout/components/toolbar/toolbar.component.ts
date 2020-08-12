@@ -1,4 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { AuthService } from 'src/app/shared/services/auth.service';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-toolbar',
@@ -6,15 +8,23 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./toolbar.component.css']
 })
 export class ToolbarComponent implements OnInit {
+  @Input() isAuthenticated;
   @Output() menuToggle:EventEmitter<null> = new EventEmitter<null>();
 
-  constructor() { }
+  constructor(private authService:AuthService, private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
   }
 
   onMenuClick() {
     this.menuToggle.emit();
+  }
+
+  onLogout() {
+    this.authService.logout();
+    this._snackBar.open('Logout successful', 'Close', {
+      duration: 2000
+    })
   }
 
 }

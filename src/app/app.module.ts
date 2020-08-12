@@ -10,11 +10,13 @@ import { AppComponent } from './app.component';
 import { SecondComponent } from './second/second.component';
 import { SimpleInterceptorService } from './todo/interceptors/simple.interceptor.service';
 import { LayoutModule } from './layout/layout.module';
+import { TeamsComponent } from './teams/teams.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SecondComponent
+    SecondComponent,
+    TeamsComponent
   ],
   imports: [
     BrowserModule,

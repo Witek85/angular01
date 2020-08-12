@@ -13,7 +13,7 @@ export class LayoutComponent implements OnInit, OnDestroy{
   private userSubscription: Subscription;
   @ViewChild('sidenav', {static: true}) private sidenavRef: MatDrawer;
 
-  constructor(private authService:AuthService, private _snackBar: MatSnackBar) { }
+  constructor(private authService:AuthService) { }
 
   ngOnInit() {
     console.log(this.authService.user);
@@ -24,13 +24,6 @@ export class LayoutComponent implements OnInit, OnDestroy{
 
   ngOnDestroy() {
     this.userSubscription.unsubscribe();
-  }
-
-  onLogout() {
-    this.authService.logout();
-    this._snackBar.open('Logout successful', 'Close', {
-      duration: 2000
-    })
   }
 
   onToggle() {

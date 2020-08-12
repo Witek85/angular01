@@ -10,7 +10,7 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <app-toolbar (menuToggle)="onToggle()">
+    <app-toolbar (menuToggle)="onToggle()" [isAuthenticated]="isAuthenticated">
       Angular App 01
     </app-toolbar>
     <router-outlet></router-outlet>

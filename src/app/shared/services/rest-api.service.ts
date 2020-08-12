@@ -7,13 +7,20 @@ import { Machine } from 'src/app/shared/interfaces/machine';
 import { of } from 'rxjs';
 import { MachinesService } from './machines.service';
 import { tap, catchError } from 'rxjs/operators';
+import { TeamsService } from './teams.service';
+import { Team } from '../interfaces/team';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RestApiService {
 
-  constructor(private http:HttpClient, private todosService: TodosService, private machinesService: MachinesService) { }
+  constructor(
+    private http:HttpClient, 
+    private todosService: TodosService, 
+    private machinesService: MachinesService,
+    private teamsService: TeamsService
+  ) { }
 
   fetchTodos() {
     return this.http
@@ -65,11 +72,10 @@ export class RestApiService {
 
   fetchTeams() {
     return this.http
-      .get<Todo[]>('http://ws-todolist-api.herokuapp.com/teams')
+      .get<Team[]>('http://ws-todolist-api.herokuapp.com/teams')
       .pipe(
         tap(teams => {
-          console.log(teams);
-          // this.todosService.setTodos(todos);
+          this.teamsService.setTeams(teams);
         }),
         catchError(err => {
           console.log('TODO catchError', err)

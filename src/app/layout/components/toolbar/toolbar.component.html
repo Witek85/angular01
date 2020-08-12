@@ -9,6 +9,7 @@
     </button>
     <mat-menu #userMenu="matMenu">
       <button mat-menu-item *ngIf="!this.isAuthenticated" routerLink="/auth">Login</button>
+      <button mat-menu-item routerLink="/teams">Teams</button>
       <button mat-menu-item *ngIf="this.isAuthenticated" (click)="onLogout()">Logout</button>
     </mat-menu>
   </mat-toolbar>
