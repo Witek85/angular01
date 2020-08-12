@@ -7,11 +7,11 @@ import { TeamsResolver } from './shared/resolvers/teams.resolver.service';
 
 const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' },
-  { path: 'first', loadChildren: './first/first.module#FirstModule'},
+  { path: 'first', loadChildren: () => import('./first/first.module').then(m => m.FirstModule) },
   { path: 'second', component: SecondComponent },
-  { path: 'todos',  loadChildren: './todo/todo.module#TodoModule'},
-  { path: 'machines',  loadChildren: './machines/machines.module#MachinesModule'},
-  { path: 'counter',  loadChildren: './counter/counter.module#CounterModule'},
+  { path: 'todos', loadChildren: () => import('./todo/todo.module').then(m => m.TodoModule) },
+  { path: 'machines', loadChildren: () => import('./machines/machines.module').then(m => m.MachinesModule) },
+  { path: 'counter', loadChildren: () => import('./counter/counter.module').then(m => m.CounterModule) },
   { path: 'teams', component: TeamsComponent, resolve: {teams: TeamsResolver} },
   { path: 'auth',  canActivate:[AuthGuard], loadChildren: './auth/auth.module#AuthModule'},
   { path: '**', redirectTo: '/' }
