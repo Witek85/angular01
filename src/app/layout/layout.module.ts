@@ -7,13 +7,11 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { ContainerComponent } from './components/container/container.component';
 
 
-
 @NgModule({
   declarations: [
     LayoutComponent, 
     ToolbarComponent, 
-    ContainerComponent
-  ],
+    ContainerComponent  ],
   imports: [
     CommonModule,
     AppMaterialModule,

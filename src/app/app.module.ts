@@ -11,12 +11,14 @@ import { SecondComponent } from './second/second.component';
 import { SimpleInterceptorService } from './todo/interceptors/simple.interceptor.service';
 import { LayoutModule } from './layout/layout.module';
 import { TeamsComponent } from './teams/teams.component';
+import { MachinesIconsComponent } from './layout/components/machines-icons/machines-icons.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SecondComponent,
-    TeamsComponent
+    TeamsComponent,
+    MachinesIconsComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,7 +28,7 @@ import { TeamsComponent } from './teams/teams.component';
     ReactiveFormsModule,
     HttpClientModule,
     LayoutModule,
-    LeafletModule
+    LeafletModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: SimpleInterceptorService, multi: true}

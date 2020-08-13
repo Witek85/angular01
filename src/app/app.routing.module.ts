@@ -5,10 +5,14 @@ import { AuthGuard } from './auth/guards/auth.guard';
 import { TeamsComponent } from './teams/teams.component';
 import { TeamsResolver } from './shared/resolvers/teams.resolver.service';
 import { ContainerComponent } from './layout/components/container/container.component';
+import { MachinesIconsComponent } from './layout/components/machines-icons/machines-icons.component';
 
 const routes: Routes = [
   { path: '', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
-  { path: 'machines', loadChildren: () => import('./machines/machines.module').then(m => m.MachinesModule) },
+  { path: 'machines', children: [
+    {path: '', outlet: 'toolbar', component: MachinesIconsComponent},
+    {path: '', loadChildren: () => import('./machines/machines.module').then(m => m.MachinesModule)}
+  ]},
   { path: '', component: ContainerComponent, children: [
     { path: 'first', loadChildren: () => import('./first/first.module').then(m => m.FirstModule) },
     { path: 'second', data: {header: 'Second'}, component: SecondComponent },
@@ -25,3 +29,4 @@ const routes: Routes = [
 	exports: [RouterModule]
 })
 export class AppRoutingModule {}
+
