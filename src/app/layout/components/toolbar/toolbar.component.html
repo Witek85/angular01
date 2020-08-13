@@ -14,7 +14,7 @@
       <button mat-menu-item *ngIf="this.isAuthenticated" (click)="onLogout()">Logout</button>
     </mat-menu>
   </mat-toolbar-row>
-  <mat-toolbar-row>
+  <mat-toolbar-row *ngIf="isSubheaderVisible" class="subheader mat-elevation-z2">
     <app-toolbar-subheader></app-toolbar-subheader>
   </mat-toolbar-row>
 </mat-toolbar>
