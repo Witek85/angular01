@@ -4,16 +4,19 @@ import { SecondComponent } from './second/second.component';
 import { AuthGuard } from './auth/guards/auth.guard';
 import { TeamsComponent } from './teams/teams.component';
 import { TeamsResolver } from './shared/resolvers/teams.resolver.service';
+import { ContainerComponent } from './layout/components/container/container.component';
 
 const routes: Routes = [
   { path: '', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
-  { path: 'first', loadChildren: () => import('./first/first.module').then(m => m.FirstModule) },
-  { path: 'second', component: SecondComponent },
-  { path: 'todos', loadChildren: () => import('./todo/todo.module').then(m => m.TodoModule) },
   { path: 'machines', loadChildren: () => import('./machines/machines.module').then(m => m.MachinesModule) },
-  { path: 'counter', loadChildren: () => import('./counter/counter.module').then(m => m.CounterModule) },
-  { path: 'teams', component: TeamsComponent, resolve: {teams: TeamsResolver} },
-  { path: 'auth',  canActivate:[AuthGuard], loadChildren: './auth/auth.module#AuthModule'},
+  { path: '', component: ContainerComponent, children: [
+    { path: 'first', loadChildren: () => import('./first/first.module').then(m => m.FirstModule) },
+    { path: 'second', component: SecondComponent },
+    { path: 'todos', loadChildren: () => import('./todo/todo.module').then(m => m.TodoModule) },
+    { path: 'counter', loadChildren: () => import('./counter/counter.module').then(m => m.CounterModule) },
+    { path: 'teams', component: TeamsComponent, resolve: {teams: TeamsResolver} },
+    { path: 'auth',  canActivate:[AuthGuard], loadChildren: './auth/auth.module#AuthModule'},
+  ]},
   { path: '**', redirectTo: '/' }
 ];
 

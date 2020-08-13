@@ -4,11 +4,18 @@ import { LayoutComponent } from './components/layout/layout.component';
 import { AppRoutingModule } from '../app.routing.module';
 import { AppMaterialModule } from '../app-material.module';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { ContainerComponent } from './components/container/container.component';
+import { ToolbarSubheaderComponent } from './components/toolbar-subheader/toolbar-subheader.component';
 
 
 
 @NgModule({
-  declarations: [LayoutComponent, ToolbarComponent],
+  declarations: [
+    LayoutComponent, 
+    ToolbarComponent, 
+    ContainerComponent, 
+    ToolbarSubheaderComponent
+  ],
   imports: [
     CommonModule,
     AppMaterialModule,
