@@ -12,6 +12,7 @@ import { SimpleInterceptorService } from './todo/interceptors/simple.interceptor
 import { LayoutModule } from './layout/layout.module';
 import { TeamsComponent } from './teams/teams.component';
 import { MachinesIconsComponent } from './layout/components/machines-icons/machines-icons.component';
+import { TodoIconsComponent } from './layout/components/todo-icons/todo-icons.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { MachinesIconsComponent } from './layout/components/machines-icons/machi
     SecondComponent,
     TeamsComponent,
     MachinesIconsComponent,
+    TodoIconsComponent
   ],
   imports: [
     BrowserModule,
