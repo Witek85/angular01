@@ -1,10 +1,11 @@
 import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 import { AuthService } from 'src/app/shared/services/auth.service';
-import { MatSnackBar, MatDrawer } from '@angular/material';
+import { MatDrawer } from '@angular/material';
 import { Subscription } from 'rxjs';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { filter, map, mergeMap, mergeAll } from 'rxjs/operators';
-import { forkJoin, merge, concat, zip } from 'rxjs';
+import { zip } from 'rxjs';
+import { Subheader } from '../../interfaces/subheader';
 
 @Component({
   selector: 'app-layout',
@@ -15,9 +16,8 @@ export class LayoutComponent implements OnInit, OnDestroy{
   isAuthenticated = false;
   private userSubscription: Subscription;
   header:string = "";
-  subheader:string = "";
+  subheader:Subheader = {isVisible:false};
   activeRoute:string = "";
-  isSubheaderVisible:boolean = false;
   @ViewChild('sidenav', {static: true}) private sidenavRef: MatDrawer;
 
   constructor(private authService:AuthService, private router: Router, private activatedRoute:ActivatedRoute) { }
@@ -48,9 +48,11 @@ export class LayoutComponent implements OnInit, OnDestroy{
       ([routeEventsResponse, routeDataResponse]) => {
         console.log(routeDataResponse);
         this.activeRoute = routeEventsResponse['urlAfterRedirects'];
-        this.isSubheaderVisible = this.activeRoute === "/";
         this.header = routeDataResponse['header'] ? routeDataResponse['header'] : 'No header';
-        this.subheader = routeDataResponse['subheader'] ? routeDataResponse['subheader'] : '';
+        this.subheader = {
+          isVisible: this.activeRoute === "/",
+          text: routeDataResponse['subheader'] ? routeDataResponse['subheader'] : ''
+        }
       });
   }
 

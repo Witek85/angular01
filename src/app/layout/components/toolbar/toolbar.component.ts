@@ -1,9 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { MatSnackBar } from '@angular/material';
-import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
-import { filter, map, mergeMap, mergeAll } from 'rxjs/operators';
-import { forkJoin, merge, concat, zip } from 'rxjs';
+import { Subheader } from '../../interfaces/subheader';
 
 @Component({
   selector: 'app-toolbar',
@@ -13,7 +11,7 @@ import { forkJoin, merge, concat, zip } from 'rxjs';
 export class ToolbarComponent implements OnInit {
   @Input() isAuthenticated;
   @Input() isSubheaderVisible:boolean;
-  @Input() subheader:string = "";
+  @Input() subheader:Subheader = {isVisible:false};
   @Output() menuToggle:EventEmitter<null> = new EventEmitter<null>();
 
   constructor(private authService:AuthService, private _snackBar: MatSnackBar) { }
