@@ -11,8 +11,8 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <app-toolbar (menuToggle)="onToggle()" [isAuthenticated]="isAuthenticated">
-      Angular App 01
+    <app-toolbar (menuToggle)="onToggle()" [isAuthenticated]="isAuthenticated" [isSubheaderVisible]="isSubheaderVisible" [subheader]="subheader">
+      {{header}}
     </app-toolbar>
     <router-outlet></router-outlet>
   </mat-sidenav-content>

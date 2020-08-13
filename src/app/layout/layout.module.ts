@@ -5,7 +5,6 @@ import { AppRoutingModule } from '../app.routing.module';
 import { AppMaterialModule } from '../app-material.module';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { ContainerComponent } from './components/container/container.component';
-import { ToolbarSubheaderComponent } from './components/toolbar-subheader/toolbar-subheader.component';
 
 
 
@@ -13,8 +12,7 @@ import { ToolbarSubheaderComponent } from './components/toolbar-subheader/toolba
   declarations: [
     LayoutComponent, 
     ToolbarComponent, 
-    ContainerComponent, 
-    ToolbarSubheaderComponent
+    ContainerComponent
   ],
   imports: [
     CommonModule,

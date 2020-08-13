@@ -3,7 +3,7 @@
     <button mat-button (click)="onMenuClick()">
       <mat-icon>menu</mat-icon>
     </button>
-    <ng-content></ng-content>{{pageTitle}}
+    <ng-content></ng-content>
     <span class="example-spacer"></span>
     <button mat-button [matMenuTriggerFor]="userMenu">
       <mat-icon>people</mat-icon>
@@ -15,6 +15,6 @@
     </mat-menu>
   </mat-toolbar-row>
   <mat-toolbar-row *ngIf="isSubheaderVisible" class="subheader mat-elevation-z2">
-    <app-toolbar-subheader></app-toolbar-subheader>
+    <span>{{subheader}}</span>
   </mat-toolbar-row>
 </mat-toolbar>

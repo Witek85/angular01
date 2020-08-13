@@ -10,7 +10,7 @@ import { AppMaterialModule } from '../app-material.module';
     CommonModule,
     AppMaterialModule,
     RouterModule.forChild([
-      {path: '', data: {title: 'Authentication'}, component: AuthComponent}
+      {path: '', data: {header: 'Authentication'}, component: AuthComponent}
     ])
   ]
 })

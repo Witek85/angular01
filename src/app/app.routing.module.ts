@@ -11,10 +11,10 @@ const routes: Routes = [
   { path: 'machines', loadChildren: () => import('./machines/machines.module').then(m => m.MachinesModule) },
   { path: '', component: ContainerComponent, children: [
     { path: 'first', loadChildren: () => import('./first/first.module').then(m => m.FirstModule) },
-    { path: 'second', data: {title: 'Second'}, component: SecondComponent },
+    { path: 'second', data: {header: 'Second'}, component: SecondComponent },
     { path: 'todos', loadChildren: () => import('./todo/todo.module').then(m => m.TodoModule) },
     { path: 'counter', loadChildren: () => import('./counter/counter.module').then(m => m.CounterModule) },
-    { path: 'teams', data: {title: 'Teams'}, component: TeamsComponent, resolve: {teams: TeamsResolver} },
+    { path: 'teams', data: {header: 'Teams'}, component: TeamsComponent, resolve: {teams: TeamsResolver} },
     { path: 'auth',  canActivate:[AuthGuard], loadChildren: './auth/auth.module#AuthModule'},
   ]},
   { path: '**', redirectTo: '/' }
