@@ -6,7 +6,7 @@ import { TeamsComponent } from './teams/teams.component';
 import { TeamsResolver } from './shared/resolvers/teams.resolver.service';
 
 const routes: Routes = [
-  { path: '', redirectTo: '', pathMatch: 'full' },
+  { path: '', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
   { path: 'first', loadChildren: () => import('./first/first.module').then(m => m.FirstModule) },
   { path: 'second', component: SecondComponent },
   { path: 'todos', loadChildren: () => import('./todo/todo.module').then(m => m.TodoModule) },

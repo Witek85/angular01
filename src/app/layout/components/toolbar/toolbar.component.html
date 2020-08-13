@@ -1,4 +1,5 @@
 <mat-toolbar color="primary" >
+  <mat-toolbar-row>
     <button mat-button (click)="onMenuClick()">
       <mat-icon>menu</mat-icon>
     </button>
@@ -12,4 +13,8 @@
       <button mat-menu-item routerLink="/teams">Teams</button>
       <button mat-menu-item *ngIf="this.isAuthenticated" (click)="onLogout()">Logout</button>
     </mat-menu>
-  </mat-toolbar>
+  </mat-toolbar-row>
+  <mat-toolbar-row>
+    <span>TODO Inject something to Second Line when path home</span>
+  </mat-toolbar-row>
+</mat-toolbar>
