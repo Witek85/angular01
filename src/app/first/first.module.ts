@@ -31,7 +31,7 @@ import { FirstSnackbarComponent } from './components/first-snackbar/first-snackb
     MatProgressBarModule,
     MatProgressSpinnerModule,
     RouterModule.forChild([
-        {path: '', component: FirstRootComponent}
+        {path: '', data: {title: 'First', subtitle: 'Welcome to the app'}, component: FirstRootComponent}
     ])
   ],
   entryComponents: [FirstDialogComponent],

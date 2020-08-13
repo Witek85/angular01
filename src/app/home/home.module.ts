@@ -12,7 +12,7 @@ import { AppMaterialModule } from '../app-material.module';
     CommonModule,
     AppMaterialModule,
     RouterModule.forChild([
-      {path: '', component: HomeContainerComponent}
+      {path: '', data: {title: 'Home'}, component: HomeContainerComponent}
   ])
   ]
 })

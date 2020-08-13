@@ -1,8 +1,9 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { MatSnackBar } from '@angular/material';
-import { Router, NavigationEnd } from '@angular/router';
-import { filter } from 'rxjs/operators';
+import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
+import { filter, map, mergeMap, mergeAll } from 'rxjs/operators';
+import { forkJoin, merge, concat, zip } from 'rxjs';
 
 @Component({
   selector: 'app-toolbar',
@@ -12,18 +13,35 @@ import { filter } from 'rxjs/operators';
 export class ToolbarComponent implements OnInit {
   @Input() isAuthenticated;
   @Output() menuToggle:EventEmitter<null> = new EventEmitter<null>();
+  pageTitle:string = "";
   activeRoute:string = "";
   isSubheaderVisible:boolean = false;
 
-  constructor(private authService:AuthService, private _snackBar: MatSnackBar, private router: Router) { }
+  constructor(private authService:AuthService, private _snackBar: MatSnackBar, private router: Router, private activatedRoute:ActivatedRoute) { }
+
+  private getLatestChild(route) {
+    while (route.firstChild) {
+        route = route.firstChild;
+    }
+    return route;
+  }
 
   ngOnInit() {
-    this.router.events.pipe(
+    const routeEvents = this.router.events.pipe(filter(event => event instanceof NavigationEnd));
+    const routeData = this.router.events.pipe(
       filter(event => event instanceof NavigationEnd),
-    ).subscribe(event => {
-      this.activeRoute = event['urlAfterRedirects'];
-      this.isSubheaderVisible = this.activeRoute === "/";
-    });
+      map(() => this.activatedRoute),
+      map((route) => this.getLatestChild(route)),
+      filter((route) => route.outlet === 'primary'),
+      mergeMap((route) => route.data),
+    )
+
+    zip(routeEvents, routeData).subscribe(
+      ([routeEventsResponse, routeDataResponse]) => {
+        this.activeRoute = routeEventsResponse['urlAfterRedirects'];
+        this.isSubheaderVisible = this.activeRoute === "/";
+        this.pageTitle = routeDataResponse['title'] ? routeDataResponse['title'] : 'No title';
+      });
   }
 
   onMenuClick() {

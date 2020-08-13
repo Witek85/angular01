@@ -25,7 +25,7 @@ import { TodosResolver } from './resolvers/todos.resolver.service';
     AppMaterialModule,
     ReactiveFormsModule,
     RouterModule.forChild([
-      {path: '', resolve: { todos: TodosResolver }, component: TodosComponent}
+      {path: '', data: {title: 'Todo'}, resolve: { todos: TodosResolver }, component: TodosComponent}
     ]),
     HttpClientModule
   ],

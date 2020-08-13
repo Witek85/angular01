@@ -3,7 +3,7 @@
     <button mat-button (click)="onMenuClick()">
       <mat-icon>menu</mat-icon>
     </button>
-    <ng-content></ng-content>
+    <ng-content></ng-content>{{pageTitle}}
     <span class="example-spacer"></span>
     <button mat-button [matMenuTriggerFor]="userMenu">
       <mat-icon>people</mat-icon>

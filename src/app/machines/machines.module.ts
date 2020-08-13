@@ -21,7 +21,7 @@ import { TeamsResolver } from '../shared/resolvers/teams.resolver.service';
     AppMaterialModule,
     LeafletModule,
     RouterModule.forChild([
-      {path: '', component: MachinesComponent, resolve: {
+      {path: '', component: MachinesComponent, data: {title: 'Machines'}, resolve: {
         machines: MachinesResolver, 
         teams: TeamsResolver
       }, children: [

@@ -33,7 +33,7 @@ import { COUNTER_ENUM } from './enums/counter.enum'
     AppMaterialModule,
     ReactiveFormsModule,
     RouterModule.forChild([
-      {path: '', component: CounterContainerComponent},
+      {path: '', data: {title: 'Counter'}, component: CounterContainerComponent},
     ]),
   ],
   providers: [

@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { Observable, of, forkJoin } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Machine } from 'src/app/shared/interfaces/machine';
 import { RestApiService } from 'src/app/shared/services/rest-api.service';
 import { Team } from 'src/app/shared/interfaces/team';
