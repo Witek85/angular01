@@ -12,6 +12,7 @@ import { FirstSpinnersComponent } from './components/first-spinners/first-spinne
 import { FirstTabsComponent } from './components/first-tabs/first-tabs.component';
 import { FirstDialogComponent } from './components/first-dialog/first-dialog.component';
 import { FirstSnackbarComponent } from './components/first-snackbar/first-snackbar.component';
+import { FirstRoutingModule } from './first.routing.module';
 
 
 @NgModule({
@@ -30,9 +31,7 @@ import { FirstSnackbarComponent } from './components/first-snackbar/first-snackb
     MatToolbarModule,
     MatProgressBarModule,
     MatProgressSpinnerModule,
-    RouterModule.forChild([
-        {path: '', data: {header: 'First'}, component: FirstRootComponent}
-    ])
+    FirstRoutingModule
   ],
   entryComponents: [FirstDialogComponent],
 })

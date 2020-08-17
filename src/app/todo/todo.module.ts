@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
@@ -10,7 +9,7 @@ import { TodoEditComponent } from './components/todo-edit/todo-edit.component';
 import { TodoFormComponent } from './components/todo-form/todo-form.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
 import { RandomizePipe } from './pipes/randomize.pipe';
-import { TodosResolver } from './resolvers/todos.resolver.service';
+import { TodoRoutingModule } from './todo.routing.module';
 
 @NgModule({
   declarations: [
@@ -24,9 +23,7 @@ import { TodosResolver } from './resolvers/todos.resolver.service';
     CommonModule,
     AppMaterialModule,
     ReactiveFormsModule,
-    RouterModule.forChild([
-      {path: '', data: {header: 'Todo'}, resolve: { todos: TodosResolver }, component: TodosComponent}
-    ]),
+    TodoRoutingModule,
     HttpClientModule
   ],
   entryComponents: [TodoEditComponent],

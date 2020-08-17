@@ -15,6 +15,7 @@ import { CounterLogButtonsComponent } from './components/counter-log-buttons/cou
 
 import { COUNTER_CONFIG } from './counter-config.token';
 import { COUNTER_ENUM } from './enums/counter.enum'
+import { CounterRoutingModule } from './counter.routing.module';
 
 
 @NgModule({
@@ -32,9 +33,7 @@ import { COUNTER_ENUM } from './enums/counter.enum'
     CommonModule,
     AppMaterialModule,
     ReactiveFormsModule,
-    RouterModule.forChild([
-      {path: '', data: {header: 'Counter'}, component: CounterContainerComponent},
-    ]),
+    CounterRoutingModule
   ],
   providers: [
     CounterService,
