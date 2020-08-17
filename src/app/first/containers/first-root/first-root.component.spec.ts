@@ -9,6 +9,7 @@ import { FirstComponent } from '../../components/first/first.component';
 import { FirstTabsComponent } from '../../components/first-tabs/first-tabs.component';
 import { FirstDialogComponent } from '../../components/first-dialog/first-dialog.component';
 import { FirstSnackbarComponent } from '../../components/first-snackbar/first-snackbar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('FirstRootComponent', () => {
   let component: FirstRootComponent;
@@ -28,6 +29,7 @@ describe('FirstRootComponent', () => {
       ],
       imports: [
         AppMaterialModule,
+        BrowserAnimationsModule
       ],
     })
     .compileComponents();

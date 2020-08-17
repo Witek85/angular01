@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MachinesMapComponent } from './machines-map.component';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { ActivatedRoute } from '@angular/router';
 
 describe('MachinesMapComponent', () => {
   let component: MachinesMapComponent;
@@ -8,7 +10,9 @@ describe('MachinesMapComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MachinesMapComponent ]
+      declarations: [ MachinesMapComponent ],
+      imports: [ LeafletModule ],
+      providers: [ ActivatedRoute ]
     })
     .compileComponents();
   }));

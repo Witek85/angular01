@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FirstTabsComponent } from './first-tabs.component';
 import { AppMaterialModule } from 'src/app/app-material.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('FirstTabsComponent', () => {
   let component: FirstTabsComponent;
@@ -12,6 +13,7 @@ describe('FirstTabsComponent', () => {
       declarations: [ FirstTabsComponent ],
       imports: [
         AppMaterialModule,
+        BrowserAnimationsModule
       ]
     })
     .compileComponents();

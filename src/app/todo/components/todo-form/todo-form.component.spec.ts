@@ -5,6 +5,7 @@ import { AppMaterialModule } from 'src/app/app-material.module';
 import { RandomizePipe } from '../../pipes/randomize.pipe';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpHandler } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('TodoFormComponent', () => {
   let component: TodoFormComponent;
@@ -13,7 +14,7 @@ describe('TodoFormComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ TodoFormComponent, RandomizePipe ],
-      imports: [ AppMaterialModule, ReactiveFormsModule ],
+      imports: [ AppMaterialModule, ReactiveFormsModule, BrowserAnimationsModule ],
       providers: [ HttpClient, HttpHandler ]
     })
     .compileComponents();

@@ -12,6 +12,7 @@ import { CounterOutputChildComponent } from '../../components/counter-output-chi
 import { CounterService } from '../../services/counter.service';
 import { COUNTER_CONFIG } from '../../counter-config.token';
 import { COUNTER_ENUM } from '../../enums/counter.enum';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('CounterContainerComponent', () => {
   let component: CounterContainerComponent;
@@ -28,7 +29,7 @@ describe('CounterContainerComponent', () => {
         CounterTemplateComponent,
         CounterOutputChildComponent
       ],
-      imports: [ AppMaterialModule, ReactiveFormsModule ],
+      imports: [ AppMaterialModule, ReactiveFormsModule, BrowserAnimationsModule ],
       providers: [ CounterService, {provide: COUNTER_CONFIG, useValue: { ...COUNTER_ENUM }}]
     })
     .compileComponents();
