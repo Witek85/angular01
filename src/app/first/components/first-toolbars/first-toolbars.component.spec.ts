@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FirstToolbarsComponent } from './first-toolbars.component';
+import { AppMaterialModule } from 'src/app/app-material.module';
 
 describe('FirstToolbarsComponent', () => {
   let component: FirstToolbarsComponent;
@@ -8,7 +9,8 @@ describe('FirstToolbarsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FirstToolbarsComponent ]
+      declarations: [ FirstToolbarsComponent ],
+      imports: [ AppMaterialModule ]
     })
     .compileComponents();
   }));

@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FirstSpinnersComponent } from './first-spinners.component';
+import { AppMaterialModule } from 'src/app/app-material.module';
 
 describe('FirstSpinnersComponent', () => {
   let component: FirstSpinnersComponent;
@@ -8,7 +9,8 @@ describe('FirstSpinnersComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FirstSpinnersComponent ]
+      declarations: [ FirstSpinnersComponent ],
+      imports: [ AppMaterialModule ]
     })
     .compileComponents();
   }));

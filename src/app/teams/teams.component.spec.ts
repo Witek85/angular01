@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TeamsComponent } from './teams.component';
+import { AppMaterialModule } from '../app-material.module';
 
 describe('TeamsComponent', () => {
   let component: TeamsComponent;
@@ -8,7 +9,8 @@ describe('TeamsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TeamsComponent ]
+      declarations: [ TeamsComponent ],
+      imports: [AppMaterialModule]
     })
     .compileComponents();
   }));

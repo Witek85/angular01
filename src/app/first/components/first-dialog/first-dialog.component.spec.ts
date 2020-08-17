@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FirstDialogComponent } from './first-dialog.component';
+import { AppMaterialModule } from 'src/app/app-material.module';
 
 describe('FirstDialogComponent', () => {
   let component: FirstDialogComponent;
@@ -8,7 +9,8 @@ describe('FirstDialogComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FirstDialogComponent ]
+      declarations: [ FirstDialogComponent ],
+      imports: [ AppMaterialModule ]
     })
     .compileComponents();
   }));

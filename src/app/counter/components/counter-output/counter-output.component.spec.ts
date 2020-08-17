@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CounterOutputComponent } from './counter-output.component';
+import { CounterOutputChildComponent } from '../counter-output-child/counter-output-child.component';
 
 describe('CounterOutputComponent', () => {
   let component: CounterOutputComponent;
@@ -8,7 +9,7 @@ describe('CounterOutputComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CounterOutputComponent ]
+      declarations: [ CounterOutputComponent, CounterOutputChildComponent ]
     })
     .compileComponents();
   }));

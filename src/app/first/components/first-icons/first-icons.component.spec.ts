@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FirstIconsComponent } from './first-icons.component';
+import { AppMaterialModule } from 'src/app/app-material.module';
 
 describe('FirstIconsComponent', () => {
   let component: FirstIconsComponent;
@@ -8,7 +9,8 @@ describe('FirstIconsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FirstIconsComponent ]
+      declarations: [ FirstIconsComponent ],
+      imports: [ AppMaterialModule ]
     })
     .compileComponents();
   }));

@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CounterTemplateComponent } from './counter-template.component';
+import { AppMaterialModule } from 'src/app/app-material.module';
 
 describe('CounterTemplateComponent', () => {
   let component: CounterTemplateComponent;
@@ -8,7 +9,8 @@ describe('CounterTemplateComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CounterTemplateComponent ]
+      declarations: [ CounterTemplateComponent ],
+      imports: [ AppMaterialModule ]
     })
     .compileComponents();
   }));

@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MachinesIconsComponent } from './machines-icons.component';
+import { AppMaterialModule } from 'src/app/app-material.module';
 
 describe('MachinesIconsComponent', () => {
   let component: MachinesIconsComponent;
@@ -8,7 +9,8 @@ describe('MachinesIconsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MachinesIconsComponent ]
+      declarations: [ MachinesIconsComponent ],
+      imports: [ AppMaterialModule ]
     })
     .compileComponents();
   }));

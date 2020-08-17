@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CounterLogButtonsComponent } from './counter-log-buttons.component';
+import { CounterService } from '../../services/counter.service';
 
 describe('CounterLogButtonsComponent', () => {
   let component: CounterLogButtonsComponent;
@@ -8,7 +9,8 @@ describe('CounterLogButtonsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CounterLogButtonsComponent ]
+      declarations: [ CounterLogButtonsComponent ],
+      providers: [ CounterService ]
     })
     .compileComponents();
   }));

@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CounterCustomInputComponent } from './counter-custom-input.component';
+import { AppMaterialModule } from 'src/app/app-material.module';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('CounterCustomInputComponent', () => {
   let component: CounterCustomInputComponent;
@@ -8,7 +11,8 @@ describe('CounterCustomInputComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CounterCustomInputComponent ]
+      declarations: [ CounterCustomInputComponent ],
+      imports: [ AppMaterialModule, FormsModule, ReactiveFormsModule, BrowserAnimationsModule ]
     })
     .compileComponents();
   }));

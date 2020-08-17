@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TodoIconsComponent } from './todo-icons.component';
+import { AppMaterialModule } from 'src/app/app-material.module';
 
 describe('TodoIconsComponent', () => {
   let component: TodoIconsComponent;
@@ -8,7 +9,10 @@ describe('TodoIconsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TodoIconsComponent ]
+      declarations: [ TodoIconsComponent ],
+      imports: [
+        AppMaterialModule,
+      ]
     })
     .compileComponents();
   }));
