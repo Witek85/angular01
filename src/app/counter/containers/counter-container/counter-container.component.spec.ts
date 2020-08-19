@@ -44,4 +44,15 @@ describe('CounterContainerComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should increase counter value on increment set', () => {
+    component.onIncrementSet(4)
+    expect(component.counter.value).toEqual(4);
+  });
+
+  it('should console log on form submit', () => {
+    console.log = jasmine.createSpy("log");
+    component.onSubmit()
+    expect(console.log).toHaveBeenCalled();
+  });
 });
