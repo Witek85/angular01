@@ -1,4 +1,4 @@
-import { TestBed, ComponentFixture } from '@angular/core/testing';
+import { TestBed, ComponentFixture, getTestBed } from '@angular/core/testing';
 import { HighlightDirective } from './highlight.directive';
 import { Component, Renderer2, DebugElement } from '@angular/core';
 import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
@@ -17,10 +17,6 @@ describe('HighlightDirective', () => {
   let element: DebugElement;
   let renderer: Renderer2;
 
-  beforeAll( ()=> {
-    TestBed.initTestEnvironment(BrowserDynamicTestingModule, platformBrowserDynamicTesting());
-  });
-
   beforeEach(() => {
     TestBed
       .configureTestingModule({
@@ -31,7 +27,6 @@ describe('HighlightDirective', () => {
     fixture = TestBed.createComponent(TestAppHighlightComponent);
     component = fixture.componentInstance;
     renderer = fixture.componentRef.injector.get(Renderer2);
-    
   });
 
   it('should create an instance', () => {
