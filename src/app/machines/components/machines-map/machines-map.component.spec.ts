@@ -10,14 +10,24 @@ describe('MachinesMapComponent', () => {
   let fixture: ComponentFixture<MachinesMapComponent>;
   const mockActivatedRoute = { 
     data: of({ 
-      machine: {
-        _id: '_1234',
-        id: 1,
-        name: "name",
-        lat: 10,
-        lng: 10,
-        teamId: 1,
-      } 
+      machines: [
+        {
+          _id: '_1234',
+          id: 1,
+          name: "name 1",
+          lat: 10,
+          lng: 10,
+          teamId: 1,
+        },
+        {
+          _id: '_1235',
+          id: 2,
+          name: "name 2",
+          lat: 10,
+          lng: 10,
+          teamId: 1,
+        } 
+      ]
     }) 
   };
 

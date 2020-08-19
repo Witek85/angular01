@@ -14,7 +14,7 @@ import { Team } from 'src/app/shared/interfaces/team';
 export class MachinesComponent implements OnInit {
   machines$: Observable<Machine[]>;
 
-  constructor(private route: ActivatedRoute, private restApiSerivice: RestApiService) { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.data.subscribe(
