@@ -3,16 +3,29 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MachinesMapComponent } from './machines-map.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { ActivatedRoute } from '@angular/router';
+import { of } from 'rxjs';
 
 describe('MachinesMapComponent', () => {
   let component: MachinesMapComponent;
   let fixture: ComponentFixture<MachinesMapComponent>;
+  const mockActivatedRoute = { 
+    data: of({ 
+      machine: {
+        _id: '_1234',
+        id: 1,
+        name: "name",
+        lat: 10,
+        lng: 10,
+        teamId: 1,
+      } 
+    }) 
+  };
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ MachinesMapComponent ],
       imports: [ LeafletModule ],
-      providers: [ ActivatedRoute ]
+      providers: [ { provide: ActivatedRoute, useValue: mockActivatedRoute } ],
     })
     .compileComponents();
   }));
