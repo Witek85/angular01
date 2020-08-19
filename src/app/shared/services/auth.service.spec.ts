@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 
 describe('AuthService', () => {
   beforeEach(() => TestBed.configureTestingModule({
-    providers: [ Router ]
+    providers: [ { provide: Router, useClass: class { navigate = jasmine.createSpy("navigate"); }} ]
   }));
 
   it('should be created', () => {
