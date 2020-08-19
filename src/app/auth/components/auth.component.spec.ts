@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AuthComponent } from './auth.component';
+import { Router } from '@angular/router';
+import { AppMaterialModule } from 'src/app/app-material.module';
 
 describe('AuthComponent', () => {
   let component: AuthComponent;
@@ -8,7 +10,9 @@ describe('AuthComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AuthComponent ]
+      declarations: [ AuthComponent ],
+      imports: [ AppMaterialModule ],
+      providers: [ { provide: Router, useClass: class { navigate = jasmine.createSpy("navigate"); }} ]
     })
     .compileComponents();
   }));
