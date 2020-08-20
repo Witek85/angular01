@@ -17,10 +17,12 @@ export class CounterOutputChildComponent implements OnInit {
   }
 
   onDetectChanges() {
+    console.log('works')
     this.ref.detectChanges();
   }
 
   onReattach() {
+    console.log('stefan')
     this.ref.reattach();
   }
 
