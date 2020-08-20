@@ -44,6 +44,8 @@ export class TodoEditComponent implements OnInit {
       this._snackBar.open(`Todo ${this.data.id} has been updated`, 'Close', {
         duration: 2000,
       });
+    }, error => {
+      console.log(error);
     });
   }
 }

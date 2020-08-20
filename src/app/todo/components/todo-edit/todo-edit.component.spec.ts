@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
 
 import { TodoEditComponent } from './todo-edit.component';
 import { AppMaterialModule } from 'src/app/app-material.module';
@@ -10,6 +10,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 describe('TodoEditComponent', () => {
   let component: TodoEditComponent;
   let fixture: ComponentFixture<TodoEditComponent>;
+  const dialogMock = {
+    close: () => { }
+  };
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -19,7 +22,7 @@ describe('TodoEditComponent', () => {
         HttpClient,
         HttpHandler,
         { provide: MAT_DIALOG_DATA, useValue: {} },
-        { provide: MatDialogRef, useValue: {} } 
+        { provide: MatDialogRef, useValue: dialogMock } 
       ]
     })
     .compileComponents();
@@ -34,4 +37,22 @@ describe('TodoEditComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should close dialog on cancel', fakeAsync(() => {
+    let spy = spyOn(component.dialogRef, 'close').and.callThrough();
+    const nativeElement = fixture.nativeElement;
+    const button = nativeElement.querySelectorAll('button')[0];
+    button.click();
+    tick();
+    expect(spy).toHaveBeenCalled();
+  }));
+
+  it('should close dialog on submit', fakeAsync(() => {
+    let spy = spyOn(component.dialogRef, 'close').and.callThrough();
+    const nativeElement = fixture.nativeElement;
+    const button = nativeElement.querySelectorAll('button')[1];
+    button.click();
+    tick();
+    expect(spy).toHaveBeenCalled();
+  }));
 });
