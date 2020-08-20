@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FirstDialogComponent } from '../../components/first-dialog/first-dialog.component';
 import { MatDialog } from '@angular/material';
+import { DialogService } from 'src/app/shared/services/dialog.service';
 
 @Component({
   selector: 'app-first-root',
@@ -9,13 +9,13 @@ import { MatDialog } from '@angular/material';
 })
 export class FirstRootComponent implements OnInit {
 
-  constructor(public dialog:MatDialog) { }
+  constructor(public dialog:MatDialog, private dialogService: DialogService) { }
 
   ngOnInit() {
   }
 
   openDialog() {
-    this.dialog.open(FirstDialogComponent)
+    this.dialogService.openDialog();
   }
 
 }

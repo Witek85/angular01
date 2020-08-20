@@ -7,7 +7,6 @@ import { FirstToolbarsComponent } from '../../components/first-toolbars/first-to
 import { FirstSpinnersComponent } from '../../components/first-spinners/first-spinners.component';
 import { FirstComponent } from '../../components/first/first.component';
 import { FirstTabsComponent } from '../../components/first-tabs/first-tabs.component';
-import { FirstDialogComponent } from '../../components/first-dialog/first-dialog.component';
 import { FirstSnackbarComponent } from '../../components/first-snackbar/first-snackbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -24,7 +23,6 @@ describe('FirstRootComponent', () => {
         FirstIconsComponent,
         FirstSpinnersComponent,
         FirstTabsComponent,
-        FirstDialogComponent,
         FirstSnackbarComponent
       ],
       imports: [

@@ -10,7 +10,6 @@ import { FirstToolbarsComponent } from './components/first-toolbars/first-toolba
 import { FirstIconsComponent } from './components/first-icons/first-icons.component';
 import { FirstSpinnersComponent } from './components/first-spinners/first-spinners.component';
 import { FirstTabsComponent } from './components/first-tabs/first-tabs.component';
-import { FirstDialogComponent } from './components/first-dialog/first-dialog.component';
 import { FirstSnackbarComponent } from './components/first-snackbar/first-snackbar.component';
 import { FirstRoutingModule } from './first.routing.module';
 
@@ -23,7 +22,6 @@ import { FirstRoutingModule } from './first.routing.module';
     FirstIconsComponent,
     FirstSpinnersComponent,
     FirstTabsComponent,
-    FirstDialogComponent,
     FirstSnackbarComponent
   ],
   imports: [
@@ -32,7 +30,6 @@ import { FirstRoutingModule } from './first.routing.module';
     MatProgressBarModule,
     MatProgressSpinnerModule,
     FirstRoutingModule
-  ],
-  entryComponents: [FirstDialogComponent],
+  ]
 })
 export class FirstModule { }

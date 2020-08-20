@@ -5,18 +5,22 @@ import { AppRoutingModule } from '../app.routing.module';
 import { AppMaterialModule } from '../app-material.module';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { ContainerComponent } from './components/container/container.component';
+import { FirstDialogComponent } from '../shared/components/first-dialog/first-dialog.component';
 
 
 @NgModule({
   declarations: [
     LayoutComponent, 
     ToolbarComponent, 
-    ContainerComponent  ],
+    ContainerComponent,
+    FirstDialogComponent
+  ],
   imports: [
     CommonModule,
     AppMaterialModule,
     AppRoutingModule
   ],
-  exports: [LayoutComponent]
+  exports: [LayoutComponent],
+  entryComponents: [FirstDialogComponent],
 })
 export class LayoutModule { }
